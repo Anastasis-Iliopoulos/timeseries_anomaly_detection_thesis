@@ -39,6 +39,9 @@
 \graphicspath{{images/}}
 
 \renewcommand{\contentsname}{Table of Contents}
+\renewcommand{\figurename}{Figure}
+\captionsetup[table]{name=Table}
+\renewcommand\bibname{References}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %					         Markdown	     						%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -319,7 +322,7 @@
 				\fontsize{16pt}{12pt}\selectfont
 				POSTGRADUATE PROGRAM INFORMATICS AND TELEMATICS
 				
-				COURSE WEB TECHNOLOGIES AND APPLICATIONS
+				WEB TECHNOLOGIES AND APPLICATIONS
 				\endgroup
 				\rm
 				\vskip 2.5in
@@ -370,7 +373,7 @@
 	\newpage
 }
 \makeatother
-\title{Anomaly detection on multivariate time series using ensemble techniques}
+\title{Detection of anomalies in time series data using ensemble techniques}
 \author{Anastasios Iliopoulos}
 \date{\today}
 
@@ -404,7 +407,7 @@
 	
 	While a model get historical data as input, the model compute parameters/variables named weights. So this process is called training and we say that the model is learning. When the model finish this process it means that it has computed every weight so it is capable of making predictions in new data. After training the model may be overfitted or underfitted or well generalized. A model is called overfitted if it is aligned to the training data, but when we feed it with new data it generates big errors. On the other hand, underfitted is called a model if it is unable to capture any relationship as a result it generates again big errors. The ideal scenario for a model is to be generalized which means it never generates errors or at least they are really small and is closer to the desired output. To explain better these terms lets give an example. Consider a student that is going to give an exam. Lets assume that the student memorize every past exam but he didn't understand or learn anything. If the student face a different problem than those he memorized then the student will not pass the exam. So the student is overfitted. On the other hand if the student didn't study then he will not pass the exam again. So in this situation we say that the student is underfitted. Generally we want our models to be generalized in order to learn the relationships between data and be able to perform well in any new data. 
 	
-	Deep Learning is a subfield of machine learning and is the field that study the neural networks. The most simple neural network is a network that consists of some neurons in successive layers, it is call Feed Forward Neural Network and it is used in the context of supervised classification problem. Let $\mathcal{X}$ be a set of data where every element $X$ is in the form of $X=(x_1,x_2,...,x_n)$ and let $\mathcal{L}=\left \{l_1,l_2,....,l_k \right \}$ the set of labels such that every element of this set $X\in\mathcal{D}$ maps to $X_i \mapsto l_j$. Then we define $z=w_1\cdot x_1 + w_2\cdot x_2 +...+w_n\cdot x_n + b \Rightarrow Z = W^T \cdot X + B$. Next we apply a function (which is called activation function) $h$. Finally we will get the prediction $\hat{y} = h(z)$. If instead of the output add another round of computations (or many more rounds) and after that we add the output layer then these layers (rounds) called hidden layers Σχ.~\ref{fig:neural_networks}. 
+	Deep Learning is a subfield of machine learning and is the field that study the neural networks. The most simple neural network is a network that consists of some neurons in successive layers, it is call Feed Forward Neural Network and it is used in the context of supervised classification problem. Let $\mathcal{X}$ be a set of data where every element $X$ is in the form of $X=(x_1,x_2,...,x_n)$ and let $\mathcal{L}=\left \{l_1,l_2,....,l_k \right \}$ the set of labels such that every element of this set $X\in\mathcal{D}$ maps to $X_i \mapsto l_j$. Then we define $z=w_1\cdot x_1 + w_2\cdot x_2 +...+w_n\cdot x_n + b \Rightarrow Z = W^T \cdot X + B$. Next we apply a function (which is called activation function) $h$. Finally we will get the prediction $\hat{y} = h(z)$. If instead of the output add another round of computations (or many more rounds) and after that we add the output layer then these layers (rounds) called hidden layers Fig.~\ref{fig:neural_networks}. 
 	
 	\begin{figure}[h]
 		\begin{subfigure}[b]{0.33\textwidth}
@@ -498,8 +501,8 @@
 	\begin{align*}
 		\varphi_\text{binary} \colon \mathbb{R}^n \rightarrow \{Normal, Anomaly\} \quad \text{ή} \quad \{0,1\} \\
 		\varphi_\text{binary}(x) \mapsto \begin{cases}
-			Anomaly \quad \text{ή} \quad 1, & \text{if} \quad \varphi(x) > \delta \\
-			\phantom{-}Normal \quad \text{ή} \quad 0, & \text{otherwise}
+			Anomaly \quad \text{or} \quad 1, & \text{if} \quad \varphi(x) > \delta \\
+			\phantom{-}Normal \quad \text{or} \quad 0, & \text{otherwise}
 		\end{cases}
 	\end{align*}
 	
@@ -613,44 +616,44 @@
 		
 		Another algorithm used in clustering problems is DBSAN which is used for anomaly detection \cite{MartinKriegelXiaowei1996DBSCAN1996}. This algorithm is based on the density of points and has within it the concept of anomalies. That is, it divides the set of data into three categories: the main points, the border points and the anomalous points. The important parameters are two $\epsilon$ and $\mu$, which are the distance that defines whether a point is neighbor or not and the minimum number of points a cluster should have, respectively.
 		
-		Έστω λοιπόν ένα σύνολο δεδομένων $\mathcal{S}$ οι $\epsilon-\text{Γείτονες}$ ενός σημείου $s_i\in\mathcal{S}$ είναι το σύνολο $\epsilon-\text{Neighbors}(s_i) = \Bigl \{s_j : s_j\in\mathcal{S}, \quad s_j\neq s_i, \quad d(s_i,s_j)\leq \epsilon \Bigl \} $, όπου $d$ είναι η συνάρτηση απόστασης.
+		So let a data set $\mathcal{S}$. The $\epsilon_\text{Neighbors}$ of a point $s_i\in\mathcal{S}$ is the set $\epsilon_\text{Neighbors}(s_i) = \Bigl \{s_j : s_j\in\mathcal{S}, \quad s_j\neq s_i, \quad d(s_i,s_j)\leq \epsilon \Bigl \} $, where $d$ is the distance function.
 		
-		Ένα σημείο λέγεται είναι κύριο αν $| \epsilon-\text{Neighbors}(s_i) | \geq \mu$.
+		A point is said to be Core point if $| \epsilon_\text{Neighbors}(s_i) | \geq \mu$.
 		
-		Ένα σημείο $s_i$ είναι συνοριακό αν 
+		A point $s_i$ is Boundary point if 
 		
-		$$ \exists s_j \in \mathcal{S} : s_j\neq s_i, \quad s_j \in \epsilon-\text{Neighbors}(s_i), \quad | \epsilon-\text{Neighbors}(s_j) | = 1 $$  
+		$$ \exists s_j \in \mathcal{S} : s_j\neq s_i, \quad s_j \in \epsilon_\text{Neighbors}(s_i), \quad | \epsilon_\text{Neighbors}(s_j) | = 1 $$  
 		
-		Τέλος ένα σημείο $s_i$ είναι ανωμαλία αν δεν είναι τίποτα από τα παραπάνω, δηλαδή δεν είναι ούτε κύριο σημείο ούτε συνοριακό σημείο.
+		Finally, a point $s_i$ is an anomaly if it is none of the above, i.e. it is neither a core point nor a boundary point
 		
-		Στις χρονοσειρές μπορούμε να εργαστούμε όπως και στον k-means δηλαδή ορίζοντας υπακολουθίες. Η δυσκολία στον DBSCAN είναι να επιλεχθούν κατάλληλα $\epsilon$ και $\mu$.
+		In time series data we can work in the same way as in k-means, i.e. by defining subsequences. The challenge in DBSCAN is to choose $\epsilon$ and $\mu$ appropriately.
 		
 		\item \textbf{Local Outlier Factor}
 		
-		Ο συγκεκριμένος αλγόριθμος δεν στηρίζεται στην πυκνότητα των σημείων αλλά στη λογική των Κοντινότερων Γειτόνων (Nearest Neighbors) ενώ ταυτόχρονα στηρίζεται και στις τοπικές ακραίες τιμές (Local Outliers).
+		The specific algorithm is not based on the density of the points but on the logic of the Nearest Neighbors, while at the same time it is based on the local outlier values (Local Outliers).
 		
-		Έστω $\mathcal{S}$ το σύνολο δεδομένων, για ένα σημείο $s_i$ ορίζουμε το LOF (παράγοντας τοπικής ακραίας τιμής) ως εξής:
+		Let $\mathcal{S}$ be the data set, for a point $s_i$ we define the LOF (local outlier factor) as follows:
 		
 		\begin{enumerate}
-			\item \textbf{ευρεση του συνόλου των $k$-Κοντινών Γειτόνων.} Έστω $k\in \mathbb{N}_+$ υπολογίζουμε τις αποστάσεις των σημείων από το $s_i$ και τις βάζουμε στη σειρά από τη μικρότερη στη μεγαλύτερη. Στη συνέχεια επιλέγουμε την $k$-οστή απόσταση. Αυτή η απόσταση λέγεται $k-\text{απόσταση}$ του $s_i$ και γράφουμε $\delta_k(s_i)$. Το σύνολο λοιπόν των $k$-Κοντινών Γειτόνων του $s_i$ είναι το
+			\item \textbf{finding the set of $k$-Nearest Neighbors.} Let $k\in \mathbb{N}_+$. We calculate the distances of the points from $s_i$ and put them in order from smallest to largest. Then we choose the $k$-th distance. This distance is called $k-\text{distance}$ of $s_i$ and we write $\delta_k(s_i)$. So the set of $k$-Nearest Neighbors of $s_i$ is the
 			
 			$$N_k(s_i) = \Bigl \{ s \in \mathcal{S} : d(s_i,s) \leq \delta_k(s_i) \Bigl \} $$
 			
-			και η Απόσταση Προσβασιμότητας ενός σημείου $s_j$ είναι 
+			and the Reachability Distance of a point $s_j$ is 
 			
 			$$ RD_k(s_i,s_j) = max\{ \delta_k(s_j), d(s_i,s_j) \} $$
 			
-			\item \textbf{υπολογίζουμε την Πυκνότητα Προσβασιμότητας.} Για ένα σημείο $s_i$ η πυκνότητα προσβασιμότητας της $k-\text{απόστασης}$ του είναι
+			\item \textbf{compute the Accessibility Density.} For a point $s_i$ the accessibility density of its $k-\text{distance}$ is
 			
 			$$LRD_k(s_i) = \Biggl ( \quad \frac{\sum\limits_{s\in N_k(s_i)}^{} RD_k(s_i,s)}{| N_k(s_i) |} \quad \Biggl )^{-1}$$
 			
-			\item \textbf{τελικά υπολογίζουμε τον LOF.}  
+			\item \textbf{finally we can calculate the LOF.}  
 			$$LOF(s_i)=\frac{\mathlarger{\sum}\limits_{s\in N_k(s_i)}^{} \frac{LRD_k(s)}{LRD_k(s_i)}}{| N_k(s_i) |}$$
 		\end{enumerate}
 		
-		Το LOF χρησιμοποιείται σαν σκορ ανωμαλίας έτσι θέτοντας ένα φράγμα μπορούμε να αποφασίσουμε αν ένα σημείο είναι ανωμαλία ή όχι.
+		LOF is used as an anomaly score. So by setting a threshold we can decide whether a point is an anomaly or not.
 		
-		Οι δυσκολίες που αντιμετωπίζουμε με αυτόν τον αλγόριθμο είναι αρκετές. Καταρχήν πρέπει να βρούμε το κατάλληλο $k$ και την κατάλληλη συνάρτηση απόστασης $d$. Αν και η Ευκλείδεια απόσταση δουλεύει αρκετά καλά πολλές φορές δεν μας δίνει αξιόπιστα αποτελέσματα. Επιπλέον ο αλγόριθμος αναφέρεται στην "τοπικότητα". Μία άλλη δυσκολία είναι ότι ο χρόνος στις χρονοσειρές δίνει σημαντικές πληροφορίες κάτι το οποίο δεν το εκμεταλλεύεται ο αλγόριθμος. Τέλος είναι κοστίζει πολύ υπολογιστικά διότι η πολυπλοκότητά του είναι $O(n^2)$.
+		The difficulties we face with this algorithm are several. First we need to find the appropriate $k$ and the appropriate distance function $d$. Although the Euclidean distance works quite well many times it does not give us reliable results. Furthermore the algorithm refers to "locality". Another difficulty is that the time in the time series gives important information which is not exploited by the algorithm. Finally, it is computationally expensive because its complexity is $O(n^2)$.
 		
 		\item \textbf{Isolation Forest}
 		
@@ -661,42 +664,42 @@
 			\label{fig:iTrees}
 		\end{figure}
 		
-		O Isolation Forest παρουσιάστηκε από τον Liu \cite{TonyMingZhiHua2008IsolationForest} και είναι μία μέθοδος που χωρίζει τον χώρο πολλαπλές φορές μέχρι να απομονώσει τα σημεία. Είναι μία ensemble μέθοδος που χρησιμοποιεί τα iTrees (τα οποία είναι μία δυαδική διαμέριση του χώρου) για το διαχωρισμό του χώρου. Συνήθως οι ανωμαλίες απομονώνονται σε μόλις λίγα βήματα. Στο Σχ.~\ref{fig:iTrees} βλέπουμε μια ανωμαλία που απομονώθηκε σε μόλις 2 βήματα. Αντίθετα για να απομονωθούν τα φυσιολογικά σημεία απαιτούνται αρκετά βήματα.
+		Isolation Forest was introduced by Liu \cite{TonyMingZhiHua2008IsolationForest} and is a method that divides the space multiple times until it isolates the points. It is an ensemble method that uses iTrees (which are a binary partition of space) to partition the space. Typically anomalies are isolated in just a few steps. In Fig.~\ref{fig:iTrees} we see an anomaly that was isolated in just 2 steps. In contrast, several steps are required to isolate normal points.
 		
-		Η μέθοδος υλοποιείται σε δύο βήματα: πρώτον δημιουργούμε $n$ iTrees κατά την εκπαίδευση και στο δεύτερο βήμα της αξιολόγησης υπολογίζουμε το σκορ ανωμαλίας.
+		The method is implemented in two steps: first we generate $n$ iTrees during training, and in the second phase which is called evaluation step we calculate the anomaly score.
 		
-		Για να εφαρμόσουμε τον Isolation Forest στο πλαίσιο τον χρονοσειρών αρχικά θα πρέπει να ορίσουμε ένα παράθυρο και στη συνέχεια να εφαρμόσουμε τον αλγόριθμο στο σύνολο των υπακολουθιών. Το σκορ ανωμαλίας βγαίνει από το μέσο όρο των μηκών των δέντρων, δηλαδή το βάθος του Forest. 
+		In order to apply Isolation Forest to the context of time series, we first need to define a window and then apply the algorithm to the set of subsequences. The anomaly score is derived from the average of the tree lengths, i.e. the depth of the Forest. 
 		
-		Οι κύριες δυσκολίες αυτής τη μεθόδου είναι τρεις, το μέγεθος του παραθύρου, ο αριθμός των δέντρων και η παράμετρος contamination. Εάν το μέγεθος του παραθύρου είναι μικρό τότε δεν θα υπάρχουν αρκετά δεδομένα ώστε να μπορέσει να φτιαχτεί ένα καλό μοντέλο. Από την άλλη αν είναι μεγάλο, τότε τα παλαιότερα χρονικά δεδομένα θα έχουν το ίδιο βάρος με τα νεότερα. Επιπλέον αν ο αριθμός των δέντρων είναι μεγάλος τότε είναι πιο κοντά στην αναμενόμενη τιμή, όμως, το κύριο πρόβλημα είναι ότι αυξάνεται η υπολογιστική πολυπλοκότητα διότι ο αλγόριθμος τρέχει σε $O(Lw^2)$, όπου $L$ είναι ο αριθμός των δέντρων που κατασκευάζονται και $w$ είναι το μέγεθος του παραθύρου. Τέλος πολλές υλοποιήσεις βασίζονται σε μια παράμετρο που λέγεται contamination, η οποία δείχνει το ποσοστό των ανωμαλιών που περιέχει το σύνολο δεδομένων μας. Η παράμετρος αυτή επηρεάζει το φράγμα για τον εντοπισμό των ανωμαλιών έτσι εάν κάνουμε κακή επιλογή κινδυνεύουμε να πάρουμε αρκετά false positives ή false negatives.
+		The main challenges of this method are three, the window size, the number of trees and the contamination parameter. If the window size is small then there will not be enough data to build a good model. On the other hand if it is large, then the oldest time data will have the same weight as the newest. Moreover, if the number of trees is large then it is closer to the expected value, however, the main problem is that the computational complexity increases because the algorithm runs in $O(Lw^2)$, where $L$ is the number of trees are constructed and $w$ is the window size. Finally, many implementations rely on a parameter called contamination, which indicates the percentage of anomalies that our data set contains. This parameter affects the threshold to detect anomalies so if we make a bad choice we risk getting a lot of false positives or false negatives.
 		
-		\item \textbf{Άλλες τεχνικές.}
+		\item \textbf{Other techniques.}
 		
-		Μία ενδιαφέρουσα τεχνική που πρέπει να αναφερθεί είναι μια παραλλαγή του αλγόριθμου SVM που ονομάζεται \textbf{OC-SVM} \cite{vapnik1964class, ocsvm1999anomalydetection}. Τέλος έχουμε και τον γνωστό αλγόριθμο \\ \textbf{XGBoost} που είναι μια Boosting τεχνική \cite{Chen_2016}.
+		An interesting technique to mention is a variant of the SVM algorithm called \textbf{OC-SVM} \cite{vapnik1964class, ocsvm1999anomalydetection} which is an SVM algorithm configured to applied for a One Class problem. Finally we have the well-known algorithm \\ \textbf{XGBoost} which is a Boosting technique \cite{Chen_2016}.
 	\end{itemize}
 	
-	\section{Μέθοδοι Βαθιάς Μηχανικής Μάθησης}
-	Οι μέθοδοι αυτοί μοιάζουν με τις μεθόδους της Μηχανικής Μάθησης διότι δεν θεωρούν ότι τα δεδομένα προέρχονται με κάποιο μηχανισμό από πίσω. Θεωρούν το μηχανισμό σαν μαύρο κουτί και προσπαθούν να κάνουν προβλέψεις εμπειρικά. Σε αυτήν την ενότητα θα δούμε μεθόδους που στηρίζονται στα Νευρωνικά Δίκτυα.
+	\section{Deep Learning methods}
+	These methods are similar to Machine Learning methods because they do not consider that the data derived from some mechanism on the background. They consider the mechanism as a black box and try to make predictions empirically. We decide to separate machine learning and deep learning methods as the latter focuses on neural network exclusively, although many researchers do not distinguish them.
 	
 	\begin{itemize}
 		\item \textbf{Multiple Layer Perceptron.}
 		
-		Η βασικότερη αρχιτεκτονική των νευρωνικών δικτύων είναι το MLP. Εδώ θα ορίσουμε ένα παράθυρο μήκους $w$. Στη συνέχεια θα πάρουμε τις υπακολουθίες και θα κάνουμε πρόβλεψη με τον εξής τρόπο: για την υπακολουθία $(x_{i-w}, x_{i-w+1}, ... , x_{i})$ μπορούμε να προβλέψουμε την επόμενη τιμή $\hat{y} = f(x_{i+1}) $. Εναλλακτικά μπορούμε να προβλέψουμε μεγαλύτερο διάστημα μήκους $m$, $\hat{y} = f((x_{i+1}, x_{i+2},....,x_{i+m}))$. Το διάστημα μήκος $m$ λέγεται παράθυρο πρόβλεψης.
+		The most basic neural network architecture is the MLP. Here we will define a window of length $w$. Then we will take the subsequences and predict as follows: for the subsequence $(x_{i-w}, x_{i-w+1}, ... , x_{i})$ we can predict the next value $\hat{y} = f(x_{i+1}) $. Alternatively we can predict a longer interval of length $m$, $\hat{y} = f((x_{i+1}, x_{i+2},....,x_{i+m}))$. The interval length $m$ is called the prediction window.
 		
-		Για τον εντοπισμός ανωμαλιών θέτουμε ένα φράγμα $\delta$ και για κάθε πρόβλεψη παίρνουμε το λάθος $\epsilon_i = \hat{y_i} - x_i $ το οποίο θα χρησιμοποιηθεί ώς σκορ ανωμαλίας και έχουμε:
+		To detect anomalies we set a threshold $\delta$ and for each prediction we get the error $\epsilon_i = \hat{y_i} - x_i $ which will be used as an anomaly score. So:
 		
 		\begin{equation*}
 			\varphi(x_i) = \begin{cases}
-				1 &,\text{ Αν } \epsilon_i\geq\delta\\
-				0 &, \text{ Αλλιώς}
+				1 &,\text{ If } \epsilon_i\geq\delta\\
+				0 &, \text{ Otherwise}
 			\end{cases}
 		\end{equation*}
 		
-		Ο αλγόριθμος αυτός έχει πολλές παραμέτρους άρα και αρκετές δυσκολίες. Αρχικά έχουμε το βάθος του δικτύου και το πλάτος του, δηλαδή τον αριθμό των κρυμμένων επιπέδων και τον αριθμό των κόμβων σε κάθε επίπεδο αντίστοιχα. Στη συνέχεια θα πρέπει να ορίσουμε το μήκος του παραθύρου και τέλος έχουμε την συνάρτηση βελτιστοποίησης.
+		This algorithm has many parameters and therefore several challenges. First we have the depth of the network and its width, i.e. the number of hidden layers and the number of nodes in each layer respectively. Next we should define the length of the window and finally we have the optimization function.
 		
 		\item \textbf{Convolutional Neural Networks}
-		Τα convolutional νευρωνικά δίκτυα έχουν γνωρίσει μεγάλη επιτυχία στον τομέα της αναγνώρισης εικόνας, αναγνώρισης αντικειμένων, στην κατηγοριοποίηση κλπ. Ωστόσο μπορούμε να τα χρησιμοποιήσουμε και στον εντοπισμό ανωμαλιών. Σε αντίθεση με τα MLP δίκτυα τα οποία είναι πλήρως συνδεδεμένα (άρα έχουμε και πολλές παραμέτρους) τα convolutional δίκτυα είναι μερικώς συνδεδεμένα κάτι το οποίο τους επιτρέπει να έχουν λιγότερες μεταβλητές να υπολογίσουν, κάνοντάς τα πιο γρήγορα στην εκπαίδευση ενώ ταυτόχρονα τους επιτρέπει να έχουν μεγαλύτερο βάθος. Επιπροσθέτως τα δίκτυα αυτά χρησιμοποιούν μια τεχνική που λέγεται pooling για την αποφυγή της υπερ-εκπαίδευσης (overfitting). Μία άλλη τεχνική που χρησιμοποιείται συχνά ονομάζεται Batch Normalization \cite{SergeyChristian2015BatchNormalization} η οποία είναι μια εναλλακτική για την dropout δηλαδή μειώνει τη σημαντικότητα αρχικοποίησης τιμών. 
+		Convolutional neural networks have been very successful in the field of image recognition, object recognition, categorization, etc. However, we can also use them in anomaly detection. Unlike MLP networks which are fully connected (so we have many weights) convolutional networks are partially connected which allows them to have fewer variables to calculate, making them faster to train while allowing them to have more depth. In addition, these networks use a technique called pooling to avoid overfitting. Another frequently used technique is called Batch Normalization \cite{SergeyChristian2015BatchNormalization} which is an alternative to dropout i.e. it reduces the importance of initializing values. 
 		
-		Για να εκπαιδευτεί ένα Convolutional Network εφαρμόζεται ένα φίλτρο (ένας πίνακας δηλαδή $n\times k$, το οποίο συνήθως είναι $3\times 3$, $5\times 5$) το οποίο μετατοπίζεται ώστε να σκανάρει όλα τα δεδομένα και να εφαρμοστεί ο τελεστής της συνέλιξης (convolution) Σχ.~\ref{fig:convfilters}.
+		To train a Convolutional Network a filter is applied (an array i.e. $n\times k$, which is typically $3\times 3$, $5\times 5$, etc) which is shifted to scan all the data and apply the operator of convolution Fig.~\ref{fig:convfilters}.
 		
 		\begin{figure}[h]
 			\centering
@@ -705,9 +708,9 @@
 			\label{fig:convfilters}
 		\end{figure}
 		
-		Η χρήση των convolutional στον εντοπισμό ανωμαλιών γίνεται κατά τον ίδιο τρόπο με πριν, δηλαδή ορίζουμε ένα παράθυρο και η εκπαίδευση γίνεται πάνω στις υπακολουθίες. Ο εντοπισμός γίνεται με τον ορισμό ενός φράγματος και τελικά η απόφαση παίρνεται πάνω στα λάθη ανάμεσα στις προβλέψεις και στην πραγματική τιμή, δηλαδή έχουμε ανωμαλία αν $f((x_{i-w}, x_{i-w+1}, ... , x_{i}))-x_{i+1} \geq \delta$
+		The use of convolutional in anomaly detection is done in the same way as before, i.e. we define a window and the training is done on the subsequences. The detection is done by defining a threshold and finally the decision is made on the errors between the predictions and the actual value, i.e. we have an anomaly if $f((x_{i-w}, x_{i-w+1}, ... , x_{i}))-x_{i+1} \geq \delta$
 		
-		Οι δυσκολίες που αντιμετωπίζει αυτή η μέθοδος είναι κατά κύριο λόγο η αρχιτεκτονική. Εδώ έχουμε μία πολύ μεγάλη δυσκολία διότι η αρχιτεκτονική του δικτύου παίζει μεγάλο ρόλο, δηλαδή έχει σημασία αν θα χρησιμοποιήσουμε dropout, Batch Normalization ή/και max-pooling. Επιπλέον έχει σημασία ο αριθμός και το μέγεθος των πυρήνων που θα χρησιμοποιηθούν σε κάθε convolutional επίπεδο. Πυρήνας ονομάζεται ένα φίλτρο που σαρώνει ένα convolutional επίπεδο το οποίο εξάγει διάφορα χαρακτηριστικά. Τέλος σημαντικός παράγοντας είναι και το βάθος το οποίο θα πρέπει να αποφασιστεί κατά τον ορισμό του δικτύου.
+		The challenges faced by this method are primarily the architecture of the network. Here we have a difficulty because the architecture of the network is very influential in the final prediction, for example it matters a lot if we will use dropout, Batch Normalization and/or max-pooling. In addition, the number and size of the kernels to be used in each convolutional level matters. Kernel is called a filter that scans a convolutional layer which extracts various features. Finally, an important factor is the depth which should be decided when defining the network.
 		
 		\item \textbf{Residual Neural Network}
 		
@@ -718,17 +721,17 @@
 			\label{fig:resnetplus}
 		\end{figure}
 		
-		Τα residual δίκτυα είναι μια επέκταση των Convolutional. Τα δίκτυα αυτά συνδυάζουν ένα αποτέλεσμα από τα προηγούμενα επίπεδα με το αποτέλεσμα ενός μεταγενέστερου επιπέδου Σχ.~\ref{fig:iTrees} το block αυτό ονομάζεται residual block \cite{HeZhangRen2015Residual}. Για να ορίσουμε ένα residual block θεωρούμε ένα $x$ ώς η είσοδος του, και $\varphi$ ένα convolutional block, το οποίο αποτελείται από convolutional επίπεδα, max-pooling, batch normalization κλπ. Η έξοδος ενός residual block είναι $y=x+\varphi(x)$. Συνήθως συμπεριλαμβάνεται και μία συνάρτηση ενεργοποίησης $\varPsi$ και τελικά έχουμε $y=\varPsi(x+\varphi(x))$.
+		Residual networks are an extension of Convolutional. These networks combine a result from the previous levels with the result of a later level Fig.~\ref{fig:iTrees} this block is called a residual block \cite{HeZhangRen2015Residual}. To define a residual block we consider $x$ as its input, and $\varphi$ a convolutional block, which consists of convolutional layers, max-pooling, batch normalization, etc. The output of a residual block is $y=x+ \varphi(x)$. Usually an activation function $\varPsi$ is also included and finally we have $y=\varPsi(x+\varphi(x))$.
 		
-		Τα residuals δίκτυα χρησιμοποιούνται για να λύσουν το πρόβλημα της "εξαφάνισης της παραγώγου" που προκύπτει από τα Convolutional δίκτυα λόγω του βάθους τους. Στην ουσία το πρόβλημα αυτό αναφέρεται σε παραγώγους οι οποίες είναι τόσο μικρές που στην ουσία μηδενίζονται (εξαφανίζονται).
+		Residuals networks are used to solve the "vanishing derivative" or the "vanishing gradient" problem that arises from Convolutional networks due to their depth. In essence, this problem refers to derivatives which are so small that they essentially zero (vanish) so they preventing the weight from changing its value.
 		
 		\item \textbf{LSTM - Long Short Term Memory Network.}
 		
-		Ένα δίκτυο γνωστό για την εφαρμογή του σε σειριακά (ακολουθιακά) δεδομένα είναι το δίκτυο LSTM το οποίο ανήκει στην οικογένεια των Recurrent Νευρωνικών Δικτύων. Σε αντίθεση με τα προηγούμενα όπου τα δεδομένα είχαν μια συνεχή πορεία προς τα εμπρός, ένα Recurrent δίκτυο διαθέτει μία σύνδεση με τα δεδομένα που ήδη έχουν περάσει, κάτι το οποίο του επιτρέπει να αντλεί πληροφορία σύμφωνα με άλλα δεδομένα και να συνδυάζει τη γνώση. Επίσημα λοιπόν η έξοδος που παράγεται είναι η εξής:
+		A network known for its application to sequential data is the LSTM network which belongs to the family of Recurrent Neural Networks. Unlike the previous ones where the data had a continuous path forward, a Recurrent network has a connection with the data that has already passed, which allows it to draw information according to other data and combine knowledge. So formally the output produced is the following:
 		
 		$$ y_i = h({x_i}^T \cdot {w_x} + {y_{i-1}}^T\cdot {w_y} + b)$$
 		
-		όπου $h$ είναι η συνάρτηση ενεργοποίησης, $x_i$ είναι ένα στοιχείο από το σύνολο των δεδομένων, $y_{i-1}$ είναι μία "προηγούμενη" προβλεπόμενη τιμή, $w_x, w_y$ είναι τα βάρη και $b$ μία σταθερά.
+		where $h$ is the activation function, $x_i$ is an element from the data set, $y_{i-1}$ is a "previous" predicted value, $w_x, w_y$ are the weights, and $b$ is a constant.
 		
 		\begin{figure}[h]
 			\centering
@@ -737,21 +740,21 @@
 			\label{fig:lstmarchitecture}
 		\end{figure}
 		
-		Ένα δίκτυο LSTM είναι λοιπόν μια παραλλαγή ενός τέτοιου δικτύου \cite{LSTM1997HochreiterSchmidhuber} στην οποία περιλαμβάνονται δύο διανύσματα $c_i$ και $z_i$. Η $z_i$ προστίθεται με το $x_i$ και καλείται short term ενώ η $c_i$ πολλαπλασιάζεται με το $x_i$ και καλείται long term. Επιπλέον υπάρχουν 3 "πύλες" που ρυθμίζουν την πληροφορία που θα πεταχτεί (forget πύλη), την πληροφορία που θα περάσει (input πύλη) και την πληροφορία που θα αποτελέσει την έξοδο (output πύλη). Αυτός ο σχεδιασμός έχει ώς αποτέλεσμα να αποθηκεύεται σημαντική πληροφορία κατά την πρόσθεση ώστε να χρησιμοποιηθεί πιο μετά (long term) και με τη χρήση του πολλαπλασιασμού (κατά σημείο) επιτυγχάνεται η διαγραφή πληροφορίας που μας είναι άχρηστη σύμφωνα με το μοντέλο από τον long term όρο. Τέλος η πύλη εξόδου αποφασίζει ποιο κομμάτι του long-term όρου θα είναι η έξοδος Σχ.~\ref{fig:lstmarchitecture}.
+		An LSTM network is therefore a variant of such a network \cite{LSTM1997HochreiterSchmidhuber} in which two vectors $c_i$ and $z_i$ are included. $z_i$ is added with $x_i$ and is called short term while $c_i$ is multiplied with $x_i$ and is called long term. In addition there are 3 "gates" that regulate the information,  Forget Gate that will thrown away any information that is not useful, the input gate that will pass the information, and the output gate that will be the output of the new information. This design has the effect of storing important information during addition to be used later (long term) and by using multiplication (point wise) it is possible to delete information that is useless according to the model from the long-term term. Finally the output gate decides which part of the long-term term will be the output Fig.~\ref{fig:lstmarchitecture}.
 		
-		Τα βήματα που εκτελεί το LSTM είναι τα εξής:
+		The steps LSTM performs are as follows:
 		
 		\begin{enumerate}
-			\item Καταρχήν θα μεταφερθούμε στην forget πύλη όπου θα αποφασιστεί τι πληροφορία θα πεταχτεί. Παίρνει την είσοδο $x_i$ και την προηγούμενη έξοδο $z_{i-1}$, και με την συνάρτηση ενεργοποίησης Sigmoid (έστω $h_s$) έχουμε $f_i = h_s(W_f\cdot [ z_{i-1, x_i}] + b_f)$. Σαν τελευταίο βήμα όταν πάμε στην πύλη forget πολλαπλασιάζουμε με την παλιά κατάσταση και έχουμε $F_i = f_i \cdot C_{i-1}$
-			\item Στη συνέχεια αποφασίζεται τι πληροφορία θα κρατήσει (input πύλη). Αρχικά εφαρμόζεται μία συνάρτηση ενεργοποίησης sigmoid στην είσοδο $x_i$ και στην προηγούμενη έξοδο $z_{i-1}$ η οποία θα αποφασίσει ποιες τιμές πρέπει να ανανεωθούν $u_i = h_s(W_u \cdot [z_{i-1}, x_i] + b_u)$. Και δεύτερον θα εφαρμοστεί μία συνάρτηση ενεργοποίησης tanh (έστω $h_\text{tanh}$),  $\hat{C_i} = h_\text{tanh}(W_C \cdot [z_{i-1}, x_i] + b_C)$ για την ανανέωση. Τελικά θα πάρουμε μετά την εφαρμογή της πύλης input $I_i = u_i \cdot \hat{C_i}$
-			\item Στην συνέχεια συνδυάζουμε τα δύο προηγούμενα βήματα δηλαδή εφαρμόζουμε μία πρόσθεση και έχουμε $ C_i = F_i + I_i$
-			\item Εφόσον έχουν γίνει τα προηγούμενα βήματα τώρα είναι η στιγμή που θα αποφασιστεί η έξοδος. Αρχικά περνάμε το προηγούμενο αποτέλεσμα από τη συνάρτηση ενεργοποίησης tanh ώστε να περιορίσουμε τις τιμές στο διάστημα -1, 1 παίρνοντας $r_i = h_\text{tanh}(C_i)$ και μετά θα περάσουμε την είσοδο $x_i$ και την προηγούμενη έξοδο από την συνάρτηση ενεργοποίησης sigmoid για να πάρουμε $o_i = h_s(W_o \cdot [z_{i-1}, x_i] + b_o)$. Μετά τον πολλαπλασιασμό θα πάρουμε την έξοδο από την πύλη output $O_i = o_i \cdot r_i$
-			\item κατά τη διάρκεια της διαδικασία αυτής αποθηκεύονται οι τιμές των $C_i$, $O_i=z_i$ για μελλοντική χρήση
+			\item First we will be transferred to the forget gate where it will be decided what information will be thrown away. It takes the input $x_i$ and the previous output $z_{i-1}$, and with the help of a Sigmoid activation function (let $h_s$) we have $f_i = h_s(W_f\cdot [ z_{i-1, x_i}] + b_f)$. As a last step when we go to the forget gate we multiply by the old state and we have $F_i = f_i \cdot C_{i-1}$
+			\item Then it is decided what information to hold (input gate). First a sigmoid activation function is applied to the input $x_i$ and the previous output $z_{i-1}$ which will decide which values should be updated $u_i = h_s(W_u \cdot [z_{i-1}, x_i] + b_u)$. And secondly a tanh activation function will be applied (let $h_\text{tanh}$), $\hat{C_i} = h_\text{tanh}(W_C \cdot [z_{i-1}, x_i] + b_C) $ for update. Finally we will get, after applying the input gate, $I_i = u_i \cdot \hat{C_i}$
+			\item Then we combine the two previous steps. We apply an addition and we have $ C_i = F_i + I_i$
+			\item Since the previous steps have been taken now is the time to decide the output. First we pass the previous result from the tanh activation function to limit the values in the interval -1, 1 by taking $r_i = h_\text{tanh}(C_i)$ and then we will pass the input $x_i$ and the previous output from sigmoid activation function to get $o_i = h_s(W_o \cdot [z_{i-1}, x_i] + b_o)$. After the multiplication we will get the output from the gate output $O_i = o_i \cdot r_i$
+			\item during this process the values of $C_i$, $O_i=z_i$ are saved for future use
 		\end{enumerate}
 		
 		\item \textbf{Autoencoder.}
 		
-		Η μέθοδος autoencoder υλοποιείται σε δύο βήματα. Στο πρώτο βήμα το μοντέλο κωδικοποιεί την είσοδο και στο δεύτερο βήμα αποκωδικοποιεί την είσοδο Σχ.~\ref{fig:autoencoder}. Η κύρια ιδέα πίσω από αυτόν τον αλγόριθμο είναι ότι αν προβάλουμε τα σημεία σε έναν χώρο λιγότερων διαστάσεων τα φυσιολογικά δεδομένα θα διαφέρουν σημαντικά από τις ανωμαλίες. Οπότε αν κάνουμε την αντίστροφη διαδικασία, τα σημεία που έχουν σημαντικές διαφορές σε σχέση με την αρχική τους κατάσταση θα είναι ανωμαλίες. Αυτή η ιδέα κάνει τον autoencoder πολύ καλή επιλογή για την ανίχνευση ανωμαλιών.
+		The autoencoder method is implemented in two steps. In the first step the model encodes the input and in the second step it decodes the input Fig.~\ref{fig:autoencoder}. The main idea behind this algorithm is that if we project the points into a smaller dimensional space the normal data will be significantly different from the anomalies. So if we do the reverse process, the points that have significant differences compared to their initial state will be anomalies. This concept makes the autoencoder a very good choice for anomaly detection.
 		
 		\begin{figure}[h]
 			\centering
@@ -760,19 +763,19 @@
 			\label{fig:autoencoder}
 		\end{figure}
 		
-		Τέτοιου τύπου δίκτυα ανήκουν στην οικογένεια των δικτύων εμπρόσθιας τροφοδότησης ή αλλιώς feed-forward (όπως ήταν και ο αλγόριθμος MLP που είδαμε νωρίτερα) σε αντίθεση με τα LSTM. Το πρώτο βήμα της διαδικασίας ονομάζεται κωδικοποιητής (Encoder) ενώ το δεύτερο αποκωδικοποιητής (Decoder). Επίσημα έχουμε:
+		Such networks belong to the family of feed-forward networks (as was the MLP algorithm we saw earlier) in contrast to LSTMs. The first step of the process is called the encoder (Encoder) while the second step is called the decoder (Decoder). We formally have:
 		
-		Έστω $\mathcal{X}$ το σύνολο δεδομένων, $f$ η συνάρτηση decoder και $g$ η συνάρτηση encoder, έχουμε:
+		Let $\mathcal{X}$ be the data set, $f$ the decoder function and $g$ the encoder function, we have:
 		
 		$$\hat{X} = f(g(X))$$
 		
-		Η συνάρτηση βελτιστοποίησης θα προσπαθήσει να μειώσει τη διαφορά ανάμεσα στο $\hat{X}$ και $X$, δηλαδή:
+		The optimization function will try to minimize the difference between $\hat{X}$ and $X$ , that is:
 		
 		$$\min_{w_f, w_g} \lvert \lvert X - \hat{X} \rvert \rvert_2  = \min_{w_f, w_g} \lvert \lvert X - f(g(X)) \rvert \rvert_2$$
 		
-		Τελικά από κάθε $x_i$ παίρνουμε ένα $\hat{x_i}$ και έχουμε το λάθος $\epsilon = \lvert x_i - \hat{x_i} \rvert$ το οποίο το χρησιμοποιούμε σαν σκορ ανωμαλίας. Ορίζοντας ένα φράγμα $\delta$ μπορούμε να αποφασίσουμε τι είναι ανωμαλία και τι όχι.
+		Finally from each $x_i$ we get a $\hat{x_i}$ and we have the error $\epsilon = \lvert x_i - \hat{x_i} \rvert$ which we use as an anomaly score. By setting a threshold $\delta$ we can decide what is an anomaly and what is not.
 		
-		Συχνά τα autoencoder συνδυάζονται με άλλα δίκτυα, για παράδειγμα CNN δίκτυα ή LSTM. Με αυτή την σύνθεση το ρόλο των encoder/decoder παίρνουν αυτά τα δίκτυα και το αποτέλεσμα είναι να πάρουμε τα πλεονεκτήματα και των δύο τεχνικών. Η διαδικασία είναι η εξής: αρχικά τα δεδομένα περνάνε από το δίκτυο (πρώτο βήμα Encoding) ώστε να μειωθούν οι διαστάσεις και στη συνέχεια στο ίδιο δίκτυο με την αντίστροφη αρχιτεκτονική (δεύτερο βήμα Decoding) ώστε να ξαναπάρουμε ένα στοιχείου του αρχικού χώρου. Οι ανωμαλίες εντοπίζονται όπως είπαμε πριν.
+		Autoencoders are often combined with other networks, for example CNN networks or LSTMs. With this composition, these networks take the role of encoder/decoder and the result is to get the advantages of both techniques. The process is as follows: first the data goes through the network (first step Encoding) to reduce the dimensions and then to the same network with the reverse architecture (second step Decoding) to get back an element of the original space. Anomalies are detected as we said before.
 		
 		\item \textbf{Variational Autoencoder και LSTM-VAE}
 		
@@ -783,36 +786,34 @@
 			\label{fig:lstmvae}
 		\end{figure}
 		
-		Παραλλαγή του autoencoder είναι ο Variational autoencoder (ή Auto-Encoding Variational Bayes \cite{Kingma2013WellingVAE}) όπου επιλέγεται δειγματοληπτικά ένα Z από μία κανονική κατανομή, ενώ ο encoder και ο decoder είναι η posterior $q(z;x)$ και η prior $p(\hat{x};z)$.
+		A variant of the autoencoder is the Variational autoencoder (or Auto-Encoding Variational Bayes \cite{Kingma2013WellingVAE}) where a Z is sampled from a normal distribution, while the encoder and decoder are the posterior $q(z;x)$ and the prior $p(\hat{x};z)$.
 		
-		To δίκτυο LSTM-VAE συνδυάζει έναν Variational Autoencoder με ένα LSTM Σχ.~\ref{fig:lstmvae} το οποίο στην πραγματικότητα είναι μια παραλλαγή του LSTM-AΕ.
-		
-		
+		The LSTM-VAE network combines a Variational Autoencoder with an LSTM Fig.~\ref{fig:lstmvae} which is actually a variant of LSTM-AE.
 		
 		
-		\item \textbf{Άλλες τεχνικές.}
+		\item \textbf{Other techniques.}
 		
-		Επιπλέον πριν κλείσουμε αυτήν την ενότητα θα πρέπει να κάνουμε μια αναφορά σε δίκτυα που αξίζει να αναφερθούν όπως το WaveNet \cite{Oord2016WaveNet} και μια παραλλαγή του LSTM το GRU \cite{ChoMerrienboer2014GRURNN}. Στην περίπτωση του WaveNet η χρονοσειρά εισάγεται όπως ακριβώς και σε ένα convolutional δίκτυο, ορίζοντας ένα παράθυρο το οποίο ορίζει υπακολουθίες οι οποίες με τη σειρά τους δίνονται στο μοντέλο. Η η κυριότερη διαφορά του WaveNet με το convolutional είναι ότι το WaveNet χρησιμοποιεί διαστελλόμενα φίλτρα Σχ.~\ref{fig:dilationfilters}. 
+		Furthermore before closing this section we should make a reference to networks worth mentioning such as WaveNet \cite{Oord2016WaveNet} and a variant of LSTM called GRU \cite{ChoMerrienboer2014GRURNN}. In the case of WaveNet the time series is imported just like in a convolutional network, defining a window which defines subsequences which in turn are given to the model. The main difference between WaveNet and convolutional is that WaveNet uses dilation filters Fig.~\ref{fig:dilationfilters}. 
 		
 		\begin{figure}[h]
 			\begin{subfigure}[b]{0.4\textwidth}
 				\centering
 				\includegraphics[width=\textwidth]{dilationfilters_withoutdilation.png}
-				\caption{Without dilation (Χωρίς διαστολή)}
+				\caption{Without dilation}
 				\label{fig:dilationfilters_withoutdilation}
 			\end{subfigure}
 			\hfill
 			\begin{subfigure}[b]{0.4\textwidth}
 				\centering
 				\includegraphics[width=\textwidth]{dilationfilters_withdilation.png}
-				\caption{With dilation (Με διαστολή)}
+				\caption{With dilation}
 				\label{fig:dilationfilters_withdilation}
 			\end{subfigure}
 			\caption{no dilation vs dilation}
 			\label{fig:dilationfilters}
 		\end{figure}
 		
-		Από την άλλη το GRU είναι μία παραλλαγή του LSTM, οι χρονοσειρές εισάγονται κατά τον ίδιο τρόπο με το LSTM ορίζοντας ένα παράθυρο μήκους $w$. Η ομοιότητα με το LSTM είναι μεγάλη και στη βιβλιογραφία φαίνεται να έχουν τις ίδιες επιδόσεις. Η μεγαλύτερη διαφορά είναι ότι το GRU έχει πιο απλή δομή Σχ.~\ref{fig:lstmgrucomparison}. Ως εκ τούτου έχει λιγότερες μεταβλητές και άρα εκπαιδεύεται σε λιγότερο χρόνο.
+		Από την άλλη το GRU είναι μία παραλλαγή του LSTM, οι χρονοσειρές εισάγονται κατά τον ίδιο τρόπο με το LSTM ορίζοντας ένα παράθυρο μήκους $w$. Η ομοιότητα με το LSTM είναι μεγάλη και στη βιβλιογραφία φαίνεται να έχουν τις ίδιες επιδόσεις. Η μεγαλύτερη διαφορά είναι ότι το GRU έχει πιο απλή δομή Fig.~\ref{fig:lstmgrucomparison}. Ως εκ τούτου έχει λιγότερες μεταβλητές και άρα εκπαιδεύεται σε λιγότερο χρόνο.
 		
 		\begin{figure}[h]
 			\centering
@@ -836,44 +837,44 @@
 	\end{itemize}
 	
 	
-	\chapter{Ανίχνευση εξαιρέσεων σε δεδομένα χρονοσειρών με χρήση ensemble τεχνικών}
+	\chapter{Outlier detection in time series data using ensemble techniques}
 	\section{Ensemble}
-	Στο κεφάλαιο αυτό θα δούμε κάποιες τεχνικές ensemble οι οποίες θα συγκριθούν με τους βασικούς αλγόριθμους στους οποίους στηρίζονται. Ensemble ονομάζονται οι μέθοδοι machine learning που βασίζονται σε άλλα μοντέλα. Στην ουσία συγκεντρώνουν τα αποτελέσματα άλλων μοντέλων και τα συνδυάζουν σε ένα τελικό αποτέλεσμα. Η ομάδα των μοντέλων και ο συνδυασμός τους ονομάζεται Ensemble. Τα ensemble μοντέλα έχουν χρησιμοποιηθεί αρκετά σε διάφορους τύπους προβλημάτων, όπως στην κατηγοριοποίηση ή στην πρόβλεψη τιμών. Γνωστοί αλγόριθμοι όπως οι Random Forest και Majority Voting έχουν μεγάλη επιτυχία σε τέτοιου είδους προβλήματα. Αλλά και πιο σύνθετοι αλγόριθμοι όπως το Bagging, το boosting και το Stacking έχουν χρησιμοποιηθεί πολύ. Η μέθοδος Bagging αποτελείται από δύο βήματα. Στο πρώτο βήμα έχουμε κάποια αρχικά μοντέλα και επιλέγουμε μόνο μερικά από τα δεδομένα για κάθε ένα μοντέλο ώστε να εκπαιδευτεί σε περιορισμένο αριθμό παρατηρήσεων. Αυτό έχει ως αποτέλεσμα το κάθε μοντέλο να βρίσκει διαφορετικά μοτίβα στο σύνολο των δεδομένων. Στο δεύτερο βήμα συγκεντρώνουμε τα αποτελέσματα και καταλήγουμε σε μία πρόβλεψη η οποία προκύπτει από το συνδυασμό των επιμέρους προβλέψεων. Στη μέθοδο boosting εκπαιδεύουμε τα μοντέλα κατά σειρά το ένα μετά το άλλο, δίνοντας στο ένα μοντέλο την έξοδο του προηγούμενου. Έτσι ένα μοντέλο εκπαιδεύεται από τα λάθη του προηγούμενού του με αποτέλεσμα όσο η διαδικασία προχωράει τα μοντέλα που βρίσκονται προς το τέλος να γίνονται πιο ισχυρά. Στην τεχνική stacking, σε αντίθεση με το boosting, όλα τα μοντέλα εκπαιδεύονται παράλληλα, ενώ η διαφορά με την τεχνική bagging είναι ότι η εκπαίδευση όλων των μοντέλων γίνεται σε όλα τα δεδομένα από το σύνολο δεδομένων εκπαίδευσης. Στο τελικό στάδιο ενός stacking βρίσκεται ένα μοντέλο το οποίο θα εκπαιδευτεί ώστε να συνδυάζει σωστά τα αποτελέσματα των υπόλοιπων μοντέλων. Το τελικό μοντέλο ονομάζεται μετα-μοντέλο. 
+	In this chapter we will see some ensemble techniques which will be compared with the basic algorithms on which they are based. Machine learning methods based on other models are called Ensemble. In essence, they aggregate the results of other models and combine them into a final result. The group of models and their combination is called Ensemble. Ensemble models have been widely used in various types of problems, such as categorization or price prediction. Well-known algorithms like Random Forest and Majority Voting are very successful in this kind of problems. But also more complex algorithms like Bagging, boosting and Stacking have been used a lot. The bagging method consists of two steps. In the first step we have some initial models and select only some of the data for each model to train on a limited number of observations. So, in a sense, each model finds different patterns in the data set. In the second step, we gather the results and arrive at a forecast which results from the combination of the individual forecasts. In the boosting method we train the models in sequence one after the other, giving one model the output of the previous one. Thus, a model is trained from the mistakes of its predecessor, as a result as the process progresses, the models that are towards the end become more powerful. In the stacking technique, unlike boosting, all models are trained in parallel, while the difference with the bagging technique is that the training of all models is done on all data from the training dataset. At the final stage of a stacking technique there is a model that will be trained to correctly combine the results of the other models. The final model is called the meta-learner or the meta-model. 
 	
-	Παρόλο που οι ensemble τεχνικές είναι διαδεδομένες, στο χώρο της ανίχνευσης ανωμαλιών σε χρονοσειρές πολλών μεταβλητών δεν έχουν μελετηθεί τόσο πολύ. Σε αυτή τη διπλωματική δίνουμε ensemble τεχνικές που έχουν χρησιμοποιηθεί για άλλου είδους προβλήματα ενώ ταυτόχρονα συγκρίνουμε τα αποτελέσματα με τους βασικούς αλγόριθμους που χρησιμοποιήθηκαν για να συνθέσουν τα ensemble. Επίσης θα δώσουμε και μία υλοποίηση η οποία δεν βρέθηκε στην βιβλιογραφία της ανίχνευσης ανωμαλιών, τουλάχιστον όσον αφορά την προσωπική μας αναζήτηση. Τελικά θα χρησιμοποιήσουμε τις παραπάνω τεχνικές όπως το bagging και το stacking. Αρχικά θα δημιουργήσουμε μοντέλα από την τεχνική bagging δίνοντας και στη συνέχεια θα δώσουμε τις εξόδους τους σε ένα μετα-μοντέλο σύμφωνα με την τεχνική του stacking. 
+	Although ensemble techniques are widespread, in the field of anomaly detection in multivariate time series they have not been studied as much. In this dissertation we give ensemble techniques that have been used for other kinds of problems while at the same time comparing the results with the basic algorithms used to compose the ensembles. We will also give an implementation that was not found in the anomaly detection literature, at least as far as our personal search is concerned. Eventually we will use the above techniques such as bagging and stacking. First we will create models by the bagging technique and then we will give their outputs to a meta-model according to the stacking technique. 
 	
-	Στις παρακάτω τεχνικές που θα δούμε έχουμε χρησιμοποιήσει παντού τα ίδια μοντέλα τα οποία είναι: Autoencoder, LSTM, Autoencoder με LSTM (LSTM-AE), Convοlutional Autoencoder (CONV-AE) και ένα LSTM-VAE.
-	\section{Δεδομένα}
+	In the following ensemble techniques we have used the same models everywhere which are: Autoencoder, LSTM, Autoencoder with LSTM (LSTM-AE), Convolutional Autoencoder (CONV-AE) and an LSTM-VAE.
+	\section{Data}
 	
-	Tα dataset που έχουν χρησιμοποιηθεί είναι από το SKAB (Skoltech Anomaly Benchmark) \cite{skabdataset}. Τα dataset έχουν παραχθεί από μία συσκευή η οποία περιλαμβάνει:
-	
-	\begin{itemize}
-		\item Ένα σύστημα κυκλοφορίας νερού.
-		\item Ένα σύστημα ελέγχου της κυκλοφορίας νερού.
-		\item Ένα σύστημα για την παρακολούθηση της κατάστασης του νερού στο σύστημα κυκλοφορίας.
-		\item Μία τεχνολογία (TSN) για την καταγραφή του χρόνου.
-		\item Τέλος ένα σύστημα για την αποθήκευση δεδομένων.
-	\end{itemize}
-	Επίσης η συσκευή αυτή διαθέτη βαλβίδες και μηχανισμούς ώστε να δημιουργεί μη-φυσιολογική λειτουργία αλλά και αισθητήρες.
-	
-	Τα δεδομένα είναι χρονοσειρές πολλών μεταβλητών. Κάθε γραμμή μέσα στα dataset συμβολίζει μία καταγραφή μίας δεδομένης χρονικής στιγμής η οποία αποτελείται από 8 μεταβλητές, τη χρονική στιγμή που έγινε η παρατήρηση και την ένδειξη αν είναι ανωμαλία ή όχι:
+	The datasets used are taken from SKAB (Skoltech Anomaly Benchmark) \cite{skabdataset}. The datasets have been produced by a device which includes:
 	
 	\begin{itemize}
-		\item datetime - Είναι η χρονική στιγμή που καταγράφεται η παρατήρηση.
-		\item Accelerometer1RMS - Επιτάχυνση (μονάδα g)
-		\item Accelerometer2RMS - Επιτάχυνση (μονάδα g)
-		\item Current - Δείχνει το ρεύμα (μονάδα Ampere)
-		\item Pressure - Πίεση (μονάδα Bar)
-		\item Temperature - Θερμοκρασία (Βαθμοί Κελσίου)
-		\item Thermocouple - Θερμοκρασία (Βαθμοί Κελσίου)
-		\item Voltage - Τα βολτ του μηχανήματος (μονάδα Volt)
-		\item RateRMS - Ρυθμός κυκλοφορίας ροής του ρευστού μέσα στο βρόγχο (Μονάδα Λίτρα/Λεπτό)
-		\item anomaly - Δείχνει αν το σημείο είναι ανωμαλία (0 ή 1)
+		\item A water circulation system.
+		\item A water circulation control system.
+		\item A system for monitoring the condition of water in the circulation system.
+		\item A technology (TSN) for recording time.
+		\item Finally a system for data storage.
+	\end{itemize}
+	Also, this device has valves and mechanisms to create abnormal operation and sensors to capture the values.
+	
+	The data are multivariate time series. Each line within the dataset symbolizes a record of a given moment in time which consists of 8 variables, the moment in time when the observation was made and the indication if it is an anomaly or not:
+	
+	\begin{itemize}
+		\item datetime - Is the time when the observation is recorded.
+		\item Accelerometer1RMS - Acceleration (unit g)
+		\item Accelerometer2RMS - Acceleration (unit g)
+		\item Current - Shows the current (ampere unit)
+		\item Pressure - Pressure (unit Bar)
+		\item Temperature - Temperature (Degrees Celsius)
+		\item Thermocouple - Temperature (Degrees Celsius)
+		\item Voltage - The volts of the machine (Volt unit)
+		\item RateRMS - Rate of flow of fluid in the loop (Unit Liters/Minute)
+		\item anomaly - Indicates if the point is an anomaly (0 or 1)
 	\end{itemize}
 	
-	Τα δεδομένα προσομοιώνουν διάφορες καταστάσεις (κάθε σύνολο δεδομένων περιγράφει διαφορετική κατάσταση και συνολικά έχουμε επιλέξει 31 σύνολα δεδομένων) όπως για παράδειγμα Προσομοίωση διαρροής υγρού και προσθήκη, Απότομη συμπεριφορά ανισορροπίας, Απότομη αύξηση/μείωση υγρού, Αργή αύξηση υγρού, Αύξηση υγρού υψηλής θερμοκρασίας και άλλα. Ανάλογα με την περίπτωση έχει φτιαχτεί διαφορετικό σύνολο δεδομένων όπου αρχικά το σύστημα δουλεύει σε φυσιολογικές συνθήκες και στη συνέχεια γίνεται η προσομοίωση ενός σεναρίου όπου παρατηρούμε τις ανωμαλίες.
+	The data simulates various situations (each data set describes a different situation and we have selected 31 data sets in total) such as Simulate liquid leakage and addition, Sudden unbalance behavior, Sudden liquid increase/decrease, Slow liquid increase, High temperature liquid increase and others. Depending on the case, a different set of data has been created where initially the system works in normal conditions and then a scenario is simulated where we observe the anomalies.
 	
-	Το SKAB λοιπόν είναι μία συλλογή από δεδομένα τα οποία μπορούν να χρησιμοποιηθούν για την αξιολόγηση τεχνικών και μοντέλων στο πλαίσιο της έρευνας στην Ανίχνευση Ανωμαλιών σε χρονοσειρές πολλών μεταβλητών. Οι συγγραφείς στο \cite{skabdataset} έχουν πειραματιστεί με αρκετά από τα μοντέλα που έχουμε ήδη περιγράψει όπως Convolutional Autoencoder, LSTM, LSTM Variational Autoencoder, Isolation forest και άλλα. Τα αποτελέσματα που πέτυχαν δείχνουν ότι πετυχαίνουν 0.79 F1-Score με το Convolutional Autoencoder στην πρώτη θέση ενώ στην τελευταία θέση βρίσκεται το Isolation Forest με 0.4 F1-Score, Πίνακας~\ref{tab:skabresults}. Στο \cite{elhalwagy2022hybridization} προτείνεται μία νέα αρχιτεκτονική Νευρωνικού Δικτύου από την οποία προκύπτει ένα υβριδικό Δίκτυο που προέρχεται από τα δίκτυα Capsule και LSTM. Οι συγγραφείς χρησιμοποιούν τα datasets του SKAB για να αξιολογήσουν την αρχιτεκτονική τους. Και εδώ παρατηρούμε τα αποτελέσματα να κυμαίνονται στα ίδια επίπεδα με ένα LSTMCaps στην πρώτη θέση με 0.74 F1-Score ενώ το Isolation Forest βρίσκεται στην τελευταία θέση με 0.4 F1-Score Πίνακας~\ref{tab:capsuleandlstm}. Τέλος στο \cite{pranavan2022contrastive} προτείνεται ένα μοντέλο που ονομάζεται TRL-CPC το οποίο μαθαίνει να αναπαριστά τη χρονοσειρά μέσω του Contrastive Learning. Contrastive Learning λέγεται η εκπαίδευση ενός μοντέλου όπου τα δείγματα συγκρίνονται μεταξύ τους και το μοντέλο μαθαίνει να βρίσκει τις ομοιότητες των χαρακτηριστικών των δειγμάτων που ανήκουν στην ίδια κλάση. Οι συγγραφείς καταφέρνουν να πετύχουν ένα  0.70 F1-Score με το TRL-CPC  στο σύνολο δεδομένων του SKAB.  
+	SKAB is therefore a collection of data that can be used to evaluate techniques and models in the context of Anomaly Detection research in multivariate time series. The authors at \cite{skabdataset} have experimented with several of the models we have already described such as Convolutional Autoencoder, LSTM, LSTM Variational Autoencoder, Isolation forest and others. The results they achieved show that they achieve 0.79 F1-Score with Convolutional Autoencoder in first place while Isolation Forest is in last place with 0.4 F1-Score, Table~\ref{tab:skabresults}. In \cite{elhalwagy2022hybridization} a new Neural Network architecture is proposed which results in a hybrid Network derived from Capsule and LSTM networks. The authors use the SKAB datasets to evaluate their architecture. Here we observe the results to be with an LSTMCaps in first place with 0.74 F1-Score while Isolation Forest is in last place with 0.4 F1-Score Table~\ref{tab:capsuleandlstm}. Finally in \cite{pranavan2022contrastive} a model called TRL-CPC is proposed which learns to represent the time series through Contrastive Learning. Contrastive Learning is called the training of a model where the samples are compared with each other and the model learns to find the similarities of the characteristics of the samples belonging to the same class. The authors manage to achieve a 0.70 F1-Score with TRL-CPC on the SKAB dataset.  
 	
 	\begin{table}[H]
 		\begin{subtable}[h]{0.31\textwidth}
@@ -941,26 +942,35 @@
 			\caption{Hybridization of Capsule and LSTM Networks}
 			\label{tab:capsuleandlstm}
 		\end{subtable}
-		\caption{Αποτελέσματα από άλλες ερευνητικές εργασίες}
+		\caption{Results from related work}
 		\label{tab:otherresearchresults}
 	\end{table}
 	
 	\section{Majority Voting}
-	Η λογική του Majoriy Voting στηρίζεται στο εξής: Αν κάνουμε μια ερώτηση σε 1000 ανθρώπους τότε κατά πάσα πιθανότητα η πλειοψηφία να βρει τη σωστή απάντηση. Αυτό ονομάζεται "η σοφία της πλειοψηφίας". Στα μαθηματικά αυτό δείχνεται με τη βοήθεια της διωνυμικής κατανομής: Έστω $X_i$ ανεξάρτητες και ισόνομες τυχαίες μεταβλητές με $ X_i \sim bernoulli(p), \quad i=1,2,....,1000$ όπου η πιθανότητα σωστής απάντησης είναι $ p=51\% $. Οι $X_i$ αναλογούν στους ανθρώπους και η πιθανότητα 51\% αναλογεί στην ικανότητά τους να απαντάνε σωστά. Δηλαδή είναι ελάχιστα καλύτεροι από το να απαντούσαν στην τύχη γυρίζοντας ένα νόμισμα. Τότε η πιθανότητα πάνω από τους μισούς να απαντήσουν σωστά είναι $P(X\geq501) = 1-P(X\leq500)$. Από τη διωνυμική κατανομή ξέρουμε ότι $P(X\leq500) = \mathlarger{\sum\limits_{n=0}^{499}} \mathlarger{\binom{\mathlarger{1000}}{\mathlarger{n}}} (\frac{51}{100})^n(1-\frac{51}{100})^{1000-n} \approx 25\%$. Οπότε έχουμε ότι $P(X\geq 501)\approx75\%$. Το οποίο σημαίνει ότι έχουμε 75\% πιθανότητα περισσότεροι από 500 άτομα να απαντήσουν σωστά. Όσο αυξάνουμε τα άτομα τόσο πιο πολύ μεγαλώνει αυτή η πιθανότητα (για παράδειγμα αν έχουμε 10000 άτομα η πιθανότητα αυτή βρίσκεται κοντά στο 97\%).
+	The logic of Majoriy Voting is based on the following: If we ask a question to 1000 people then it is more likely that the majority will find the correct answer. This is called "the wisdom of the majority". In mathematics this is shown with the help of the binomial distribution: Let $X_i$ be independent and equal random variables with $ X_i \sim bernoulli(p), \quad i=1,2,....,1000$ where the probability of a correct answer is $ p=51\% $. The $X_i$ correspond to humans and the probability 51\% corresponds to their ability to answer correctly. That is, they are little better than responding to chance by flipping a coin. Then the probability that more than half answer correctly is $P(X\geq501) = 1-P(X\leq500)$. From the binomial distribution we know that $P(X\leq500) = \mathlarger{\sum\limits_{n=0}^{499}} \mathlarger{\binom{\mathlarger{1000}}{\mathlarger{n}} } (\frac{51}{100})^n(1-\frac{51}{100})^{1000-n} \approx 25\%$. So we have that $P(X\geq 501)\approx75\%$. Which means we have a 75\% chance that more than 500 people will answer correctly. The more people we increase, the more this probability grows (for example, if we have 10000 people, this probability is close to 97\%).
 	
-	Στην τεχνική αυτή χρησιμοποιούμε όλα τα μοντέλα που προαναφέρθηκαν σε αυτό το κεφάλαιο σαν βασικά μοντέλα πρόβλεψης, τα οποία είναι πολύ καλύτερα από ένα απλό 51\% στις προβλέψεις τους. Η διαδικασία είναι:
+	In this technique we use all the models mentioned above in this chapter as basic prediction models, which are much better than a simple 51\% in their predictions. The process is:
 	
 	\begin{enumerate}
-		\item Εκπαιδεύουμε όλα τα μοντέλα σε ένα κομμάτι των δεδομένων μας.
-		\item Στη συνέχεια κάνουμε προβλέψεις σε όλα τα δεδομένα μας. Για κάθε σημείο το κάθε βασικό μοντέλο παράγει μία ετικέτα (αν είναι ανωμαλία 1 αλλιώς 0)
-		\item Για κάθε σημείο έχουμε μια 5-άδα $(X_1, X_2, X_3, X_4, X_5)$ όπου τα $X_i \in \{0,1\}$ συμβολίζουν την ετικέτα που δίνει ο αλγόριθμος $i$ στο σημείο αυτό.
-		\item Αν τα 1 είναι περισσότερα από τα 0 τότε το σημείο χαρακτηρίζεται ως ανωμαλία.
+		\item We train all models on a piece of our data.
+		\item We then make predictions on all our data. For each point each base model produces a label (if anomaly then 1 otherwise 0)
+		\item For each point we have a 5-vector $(X_1, X_2, X_3, X_4, X_5)$ where $X_i \in \{0,1\}$ denote the label given by the algorithm $i$ to this point .
+		\item If the 1's are more than the 0's then the point is characterized as an anomaly.
 	\end{enumerate}
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\textwidth]{majorityvotingpc.png}
+		\caption{Majority Voting}
+		\label{fig:majorityvotingpc}
+	\end{figure}
+
 	
-	Σύμφωνα με αυτόν τον αλγόριθμο αν ένα μοντέλο αδυνατεί να προσαρμοστεί σε κάποιο σύνολο δεδομένων ενώ οι άλλοι αλγόριθμοι τα πηγαίνουν καλύτερα τότε το σημείο δεν θα χαθεί και αν είναι ανωμαλία θα εντοπιστεί. Λόγω της φύσης των ανωμαλιών τα σύνολα που διαθέτουμε έχουν αρκετές διαφορές μεταξύ τους. Αυτό θα είχε ως αποτέλεσμα ένας αλγόριθμος μόνος του να μπορούσε να δει κάποια μοτίβα σε κάποια σύνολα ενώ να αποτύγχανε σε κάποια άλλα. Η μέθοδος του Majority Voting λύνει αυτό το πρόβλημα χρησιμοποιώντας τη γνώση από 5 διαφορετικά μοντέλα. Ο αλγόριθμος αυτός μπορεί να χρησιμοποιηθεί με μια παραλλαγή και να δίνουμε ένα βάρος στις απαντήσεις των βασικών αλγορίθμων, έπειτα ανάλογα το βάρος θα βγαίνει το τελικό συμπέρασμα. Εμείς επιλέξαμε να κρατήσουμε σε κάθε αλγόριθμο να δίνουμε το ίδιο βάρος οπότε όλες οι απαντήσεις μετράνε το ίδιο.
+	
+	According to this algorithm if a model fails to fit some data set while the other algorithms do better then the point will not be lost and if it is an anomaly it will be detected Fig.~\ref{fig:majorityvotingpc}. Due to the nature of the anomalies, the data sets have several differences between them. This would result in an algorithm alone being able to see some patterns in some sets while failing in others. The Majority Voting method solves this problem by using knowledge from 5 different models. This algorithm can be used with a variation and give a weight to the answers of the basic algorithms, then depending on the weight the final conclusion will be made. We chose to keep giving each algorithm the same weight so all answers count the same. Below is a more advanced variant of this algorithm.
 	
 	\section{Logistic Regression}
-	Η μέθοδος αυτή είναι πολύ δημοφιλής στην κατηγοριοποίηση. Εδώ θα χρησιμοποιήσουμε αυτή τη μέθοδο στο περιβάλλον της ημι-επιβλεπόμενης μάθησης όπου αρχικά θα εκπαιδεύσουμε τα βασικά μοντέλα και στη συνέχεια θα εκπαιδεύσουμε ένα logistic regression μοντέλο πάνω στα σκορ ανωμαλίας που έχουμε εξάγει από τα μοντέλα. Στην ουσία θέλουμε το μοντέλο μας να μάθει να συνδυάζει τη γνώση που του δίνουν οι βασικοί αλγόριθμοι ώστε να μπορεί να προβλέψει αν ένα σημείο είναι ανωμαλία.
+	This method is very popular in categorization. Here we will use this method in the semi-supervised learning environment where we will first train the basic models and then train a logistic regression model on the anomaly scores we have extracted from the models. In essence, we want our model to learn to combine the knowledge given to it by the basic algorithms so that it can predict whether a point is an anomaly.
 	
 	\begin{figure}[h]
 		\centering
@@ -969,7 +979,7 @@
 		\label{fig:sigmoid}
 	\end{figure}
 	
-	Το logistic regression μοντέλο χρησιμοποιεί την σιγμοειδή (Sigmoid) συνάρτηση Σχ.~\ref{fig:sigmoid} η οποία είναι $\sigma(x) = \frac{1}{1+\exp(-x)}$. Ο αλγόριθμος εκτιμάει την πιθανότητα $\hat{p}=\sigma(X^T\theta)$ και η πρόβλεψη είναι η 
+	The logistic regression model uses the sigmoid function Fig.~\ref{fig:sigmoid} which is $\sigma(x) = \frac{1}{1+\exp(-x)}$. The algorithm estimates the probability $\hat{p}=\sigma(X^T\theta)$ and the prediction is
 	\begin{equation*}
 		\hat{y} = \begin{cases}
 			0, &\hat{p}<0.5\\
@@ -977,73 +987,73 @@
 		\end{cases}
 	\end{equation*}
 	
-	H ensemble μέθοδος λοιπόν εκτελείται σε δύο βήματα. 
+	The ensemble method is therefore performed in two steps.
 	\begin{itemize}
-		\item Αρχικά παίρνουμε ένα κομμάτι των δεδομένων για εκπαίδευση και το χωρίζουμε σε δύο υποσύνολα ξένα μεταξύ τους έστω $A$ και $B$
-		\item Στη συνέχεια εκπαιδεύουμε τα βασικά μοντέλα στο σύνολο $A$ χωρίς να δουν καθόλου το σύνολο $B$. Αυτό γίνεται για να μην υπάρχει διαρροή πληροφορίας ανάμεσα στα μοντέλα και στο logistic regression.
-		\item Έπειτα κάνουμε προβλέψεις στο σύνολο $B$ με τα βασικά μοντέλα και φτιάχνουμε ένα σύνολο $B'$. Έτσι το σύνολο μας αποτελείται από στοιχεία τα οποία έχουν ως διαστάσεις τις προβλέψεις των βασικών μοντέλων.
-		\item Τέλος εκπαιδεύουμε το logistic regressor στα στοιχεία του $B'$ δίνοντάς του ταυτόχρονα και τις πραγματικές ετικέτες τους (για αυτό το λόγο στην τεχνική αυτή μιλάμε για ημι-επιβλεπόμενη μάθηση).
+		\item First we take a piece of the data for training and divide it into two subsets that are disjoint, let be $A$ and $B$
+		\item We then train the base models on set $A$ without seeing set $B$ at all. This is done so that there is no information leakage between the models and the logistic regression.
+		\item We then make predictions on the set $B$ with the basic models and build a set $B'$. Thus, our set consists of elements whose dimensions are the predictions of the basic models.
+		\item Finally we train the logistic regressor on the elements of $B'$ giving it their real labels at the same time (for this reason it is called semi-supervised learning).
 	\end{itemize}
-	Τελικά το logistic regression θα έχει μάθει να βασίζεται στις προβλέψεις των βασικών μοντέλων. Ωστόσο κρατώντας ξεχωριστά την εκπαίδευση των βασικών μοντέλων και την εκπαίδευση του logistic regression καταφέρνουμε ουσιαστικά να δώσουμε στις προβλέψεις κάθε βασικού μοντέλου ένα βάρος. Συνδυαστικά δηλαδή στο τέλος αν ένα μοντέλο δεν είναι τόσο αξιόπιστο, το logistic regression δεν θα λαμβάνει πολύ την άποψη του σε αντίθεση με την προηγούμενη μέθοδο που κάθε μοντέλο είχε την ίδια αντιμετώπιση με τα υπόλοιπα (δίνοντας βάρος 1 σε όλα).
+	Eventually the logistic regression will have learned to rely on the predictions of the basic models. However, by keeping the training of the basic models and the training of the logistic regression separately, we actually manage to give the predictions of each basic model a weight. Combined that is, in the end if a model is not that reliable, logistic regression will not get much of its opinion unlike in the previous method (Majoriy Voting) where each model was treated the same as the rest (giving a weight of 1 to all).
 	
-	Η ανωμαλία τελικά προκύπτει από την πιθανότητα που εξάγεται μετά την πρόβλεψη σύμφωνα με αυτό που δείξαμε παραπάνω. Δηλαδή ότι υπολογίζεται κάτω από 0.5 είναι φυσιολογικό σημείο ενώ ότι υπολογίζεται πάνω από 0.5 είναι ανώμαλο σημείο. Ανάλογα την περίπτωση θα μπορούσαμε να πειράξουμε το φράγμα του 0.5 για να μετακινήσουμε το όριο απόφασης. Αυτό θα μας έδινε περισσότερα False Positives ή False Negatives αν μειώναμε ή αυξάναμε το φράγμα. Για παράδειγμα αν πρόκειται για την αντιμετώπιση νοσημάτων σε έναν πληθυσμό θα θέλαμε ιδανικά να μην χαρακτηρίσει το μοντέλο μας κάτι φυσιολογικό ενώ στην πραγματικότητα δεν είναι. Στο παράδειγμα που δώσαμε ένα χαμηλό φράγμα θα ταίριαζε καλύτερα διότι είναι πολύ επιβλαβές να περάσει κάτι επικίνδυνο. Επιπλέον με την ανθρώπινη συμμετοχή θα μπορούσαν να ελέγχονται οι ανωμαλίες (δεδομένου ότι είναι λίγες) και να αποφασίζεται τελικά αν ήταν ανωμαλία ή όχι από τον άνθρωπο. Αντίθετα εάν έχουμε ένα ηλεκτρονικό κατάστημα και οι ανωμαλίες εκεί είναι κακόβουλοι χρήστες τότε με ένα πολύ χαμηλό φράγμα να κάναμε δύσχρηστο το σύστημά μας το οποίο θα είχε ως αποτέλεσμα την απομάκρυνση του κόσμου.
+	The anomaly finally results from the probability extracted after the prediction according to what we have shown above. That is, a value below 0.5 is a normal point, while a value above 0.5 is an anomalous point. Depending on the case we could change the 0.5 threshold to move the decision boundary. This would give us more False Positives or False Negatives if we lowered or raised the threshold. For example, if we are dealing with diseases in a population, we would ideally like our model not to characterize something as normal when in fact it is not which means we want to decrease the false negatives. In the example we gave a low threshold would be better suited because it is very harmful for something dangerous to pass. On the other hand it isn't big deal if we categorize a point as positive even if it isn't. In the example above if a person is healthy and our model label it as anomaly (person has the decease) then it will not make much harm if this person is isolated for a few days. In addition, with human involvement, anomalies (since they are few) could be checked and finally decided if it was an anomaly or not by humans. Conversely if we have an online store and the anomalies are malicious users then with a very low threshold we would have made our system unusable which would have resulted in people moving away. In such a use case it may be more suitable a larger threshold. This means that we label a user as anomaly only if we are very very certain about it so normal users will not labeled as false positives. On the other hand if a user is malicious and we weren't able to capture it then it will not be vary harmful for our web site for the near future. He will eventually get caught if he continue to have a bad behavior. As a result our web site remains functional and safe from the big threats.
 	
 	\section{Feature Bagging}
 	
-	H μέθοδος αυτή έχει προταθεί από τους Lazarevic και Kumar \cite{lazarevicKumar2005Featurebagging} ως μία μέθοδος ανίχνευσης ανωμαλιών σε χρονοσειρές πολλών διαστάσεων. Οι συγγραφείς κάνουν αναφορά σε αλγορίθμους οι οποίοι προσπαθούν να ανιχνεύσουν ανωμαλίες σε δεδομένα πολύ μεγάλων διαστάσεων ενώ ταυτόχρονα θεωρούν ότι είναι άσκοπο να γίνεται μία τέτοια προσπάθεια διότι η σημασία της ομοιότητας (ή της απόστασης) χάνει το νόημά της όσο αυξάνεται ο αριθμός των διαστάσεων. Λόγω του μεγάλου πλήθους τον διαστάσεων τα δεδομένα είναι πολύ μακρυά μεταξύ τους. Αυτό σημαίνει ότι όσο μεγαλώνουν οι διαστάσεις τόσο πιο πολύ απομακρύνονται τα σημεία το ένα από το άλλο και τόσο όλα τα σημεία απομονώνονται που τελικά θεωρούνται όλα ανωμαλίες. Έτσι προτείνεται η μέθοδος Feature Bagging η οποία παίρνει ένα υποσύνολο των διαστάσεων ώστε να αποφύγει το φαινόμενο αυτό. 
+	This method has been proposed by Lazarevic and Kumar \cite{lazarevicKumar2005Featurebagging} as an anomaly detection method in multidimensional time series. The authors refer to algorithms that try to detect anomalies in very high-dimensional data, while at the same time they consider it pointless to make such an effort because the importance of similarity (or distance) loses its meaning as the number of dimensions increases. Due to the large number of dimensions the data are very far apart. This means that the larger the number of dimensions, the further the points are separated from each other and the more isolated all the points are that eventually they are all considered anomalies. Thus, the Feature Bagging method is proposed which takes a subset of the dimensions to avoid this phenomenon. 
 	
 	\begin{figure}[h]
 		\begin{subfigure}[b]{0.49\textwidth}
 			\centering
 			\includegraphics[width=\textwidth]{featurebaggingA.png}
-			\caption{Η ανωμαλία δεν ξεχωρίζει από τα δεδομένα}
+			\caption{The anomaly does not stand out from the data}
 			\label{fig:featurebaggingA}
 		\end{subfigure}
 		\hfill
 		\begin{subfigure}[b]{0.49\textwidth}
 			\centering
 			\includegraphics[width=\textwidth]{featurebaggingB.png}
-			\caption{Η ανωμαλία ξεχωρίζει από τα δεδομένα}
+			\caption{The anomaly stands out from the data}
 			\label{fig:featurebaggingB}
 		\end{subfigure}
-		\caption{Δύο διαφορετικές προβολές των δεδομένων σε δύο διαστάσεις}
+		\caption{Two different projections of the data in two dimensions}
 		\label{fig:featurebaggingAB}
 	\end{figure}
 	
-	Από την άλλη αν θεωρήσουμε ότι οι περισσότερες διαστάσεις εισάγουν θόρυβο στο σύνολό μας, τότε είναι πιο πιθανό να βρεθούν οι ανωμαλίες μέσα από ένα υποσύνολο των διαστάσεων. Έτσι λοιπόν ο αλγόριθμος αυτός μπορεί να χρησιμοποιηθεί ώστε να μπορέσει να εντοπίσει τις ανωμαλίες κοιτάζοντας κάποιες από τις διαστάσεις και όχι όλες. Στο Σχ.~\ref{fig:featurebaggingAB} βλέπουμε αυτή ακριβώς τη λογική, στην πρώτη εικόνα φαίνεται ότι δεν μπορούμε να ξεχωρίσουμε την ανωμαλία από τα υπόλοιπα δεδομένα, στη δεύτερη εικόνα όμως, βλέπουμε μία προβολή των δεδομένων σε δύο διαστάσεις όπου η ανωμαλία απομονώνεται.
+	On the other hand if we consider that most dimensions introduce noise into our ensemble, then it is more likely that anomalies will be found through a subset of the dimensions. So this algorithm can be used to be able to detect anomalies by looking at some of the dimensions and not all. In Fig.~\ref{fig:featurebaggingAB} we see exactly this logic, in the first image it seems that we cannot distinguish the anomaly from the rest of the data, but in the second image, we see a projection of the data in two dimensions where the anomaly is isolated.
 	
-	Είναι γνωστό ότι οι βασικοί αλγόριθμοι στις ensemble τεχνικές πρέπει να είναι ικανά μοντέλα αλλά και να έχουν μια διαφορετικότητα μεταξύ τους ώστε να μπορέσουν να συνθέσουν ένα αποδοτικό ensemble μοντέλο. Η ικανότητα των μοντέλων φυσικά παίζει σημαντικό ρόλο, αλλά και η διαφορετικότητα διότι αν τα μοντέλα είναι διαφορετικά τότε δεν θα κάνουν τα ίδια λάθη. Το οποίο σημαίνει ότι ένα λάθος που κάνει ένα μοντέλο θα καλύπτεται από τα υπόλοιπα. Με αυτή τη μέθοδο πετυχαίνουμε επιπλέον να δώσουμε διαφορετικά σύνολα δεδομένων στα μοντέλα, ως εκ τούτου κάθε μοντέλο αποκτάει ιδιαίτερα χαρακτηριστικά. Έτσι ο αλγόριθμος αυτός πετυχαίνει να διαφοροποιεί τα βασικά τους μοντέλα. Ο κλασικός αλγόριθμος bagging δεν καταφέρνει να δώσει ένα αποδοτικό ensemble από βασικούς αλγόριθμους που βασίζονται στα τοπικά χαρακτηριστικά των δεδομένων. Αυτό διότι τέτοιοι αλγόριθμοι δεν είναι ευαίσθητοι σε δειγματοληπτικές μεθόδους. Ωστόσο με τον feature bagging πετυχαίνουμε να διαφοροποιηθούμε από τον κλασικό bagging στο γεγονός ότι αντί να επιλέγουμε σημεία, επιλέγουμε features, στο οποίο είναι πολύ ευαίσθητοι αυτοί οι αλγόριθμοι, εφόσον η επιλογή των features παίζει σημαντικό ρόλο στον υπολογισμό αποστάσεων.
+	It is known that the basic algorithms in ensemble techniques must be efficient models but also have a diversity among themselves in order to be able to compose an efficient ensemble model. The ability of the models of course plays an important role, but also the diversity because if the models are different then they will not make the same mistakes and they will be able to capture different pattern in the data. Which means that a mistake made by one model will be covered by the rest. With this method we also manage to give different data sets to the models, therefore each model acquires special characteristics. Thus this algorithm succeeds in differentiating their basic models. The classical bagging algorithm fails to provide an efficient ensemble of basic algorithms based on the local features of the data. This is because such algorithms are not sensitive to sampling methods. However, with feature bagging we succeed in differentiating ourselves from classic bagging in the fact that instead of selecting points, we select features, to which these algorithms are very sensitive, since the selection of features plays an important role in calculating distances.
 	
-	Η διαδικασία για την υλοποίηση αυτής της μεθόδου είναι η εξής: 
+	The procedure for implementing this method is as follows: 
 	
 	\begin{itemize}
-		\item Αρχικά παίρνουμε ως δεδομένο ένα σύνολο δεδομένων $\mathcal{S} = \left\{ X_1, X_2,...X_n \right\}$ όπου $X_i\in\mathbb{R}^d$, με $d$ να είναι το πλήθος των διαστάσεων των $X_i$.
-		\item Στο πρώτο βήμα της διαδικασίας επιλέγουμε το πλήθος των βασικών αλγόριθμων που θέλουμε να χρησιμοποιήσουμε. Εμείς εδώ έχουμε επιλέξει όλοι οι αλγόριθμοι να έχουν την ίδια αρχιτεκτονική. Έστω $T$ το πλήθος τους, για κάθε έναν από αυτούς εκτελούμε τα επόμενα βήματα.
+		\item We first take as given a data set $\mathcal{S} = \left\{ X_1, X_2,...X_n \right\}$ where $X_i\in\mathbb{R}^d$, with $d $ be the number of dimensions of $X_i$.
+		\item In the first step of the process we select the number of basic algorithms we want to use. Here we have chosen that all the individual algorithms have the same architecture. Let $T$ be their number, for each of them we perform the following steps.
 		
 		\begin{itemize}
 			
-			\item Επιλέγουμε έναν τυχαίο αριθμό $N_t$ από μία ομοιόμορφη κατανομή ανάμεσα στο $\lfloor d \rfloor$ και $(d-1)$. Εδώ το $t$ συμβολίζει τον $t-\text{οστό}$ αλγόριθμο.
-			\item Στη συνέχεια επιλέγουμε χωρίς επανάθεση τυχαία $N_t$ features και δημιουργούμε ένα σύνολο από features $\mathcal{F}$
-			\item Εκπαιδεύουμε τον αλγόριθμο εντοπισμού ανωμαλιών $\text{Alg}_t$ στα δεδομένα κρατώντας μόνο τα χαρακτηριστικά $\mathcal{F}$.
-			\item και παίρνουμε για κάθε σημείο το σκορ ανωμαλίας του αλγόριθμου $t$ $\text{AnomalyScore}_t$
+			\item We select a random number $N_t$ from a uniform distribution between $\lfloor d \rfloor$ and $(d-1)$. Here $t$ denotes the $t$ algorithm.
+			\item Then we randomly select $N_t$ features without repetition and create a set of $\mathcal{F}$ features
+			\item We train the anomaly detection algorithm $\text{Alg}_t$ on the data keeping only the $\mathcal{F}$ features.
+			\item and we get for each point the anomaly score of the algorithm $t$ $\text{AnomalyScore}_t$
 		\end{itemize}
-		\item Τελικά για κάθε σημείο έχουμε $T$ σκορ ανωμαλίας (ένα για κάθε αλγόριθμο), \\ $\text{AnomalyScore}_1, \text{AnomalyScore}_2,...,\text{AnomalyScore}_T$ \\ και επιλέγουμε το τελικό σκορ ανωμαλίας εφαρμόζοντας μία συνάρτηση συλλογής. Δηλαδή \\ $\text{AnomalyScore} = \text{Agg}(\text{AnomalyScore}_1, \text{AnomalyScore}_2,...,\text{AnomalyScore}_T)$.
+		\item finally for each point we have $ t $ anomaly score (one for each algorithm), \\ $ \text{anomalyscore}_1, \text{anomalyscore}_2, ..., \text{anomalyscore}_t $ \\ and we select the final anomaly score by applying a collection function. That is, \\ $ \text{anomalyscore} = \text{agg} (\text{anomalyscore}_1, \text{anomalyscore}_2, ..., \text {anomalyscore}_t) $.
 	\end{itemize}
 	
-	Η επιλογή της συνάρτηση συλλογής παίζει και αυτή ένα ρόλο στην απόδοση του αλγόριθμου. Μία πολύ γνωστή είναι η Βreadth-First η οποία επιλέγει το στοιχείο με το μεγαλύτερο σκορ του πρώτου αλγόριθμου σαν ανωμαλία, στη συνέχει επιλέγει το μεγαλύτερο σκορ του δεύτερου αλγόριθμου σαν ανωμαλία εώς ότου φτάσει στον τελευταίο αλγόριθμο. Έπειτα πηγαίνει στο δεύτερο μεγαλύτερο στοιχείο του τελευταίου αλγόριθμου και το επιλέγει σαν ανωμαλία και εκτελεί το ίδιο μέχρι να γυρίσει στον πρώτο. Η διαδικασία αυτή γίνεται εώς ότου φτάσουμε ένα συγκεκριμένο αριθμό/ποσοστό ανωμαλιών. Ο τρόπος αυτός αν και είναι πολύ δημοφιλής έχει την εξής αδυναμία, θα βρίσκει πάντα ανωμαλίες ακόμα και αν το σύνολο δεδομένων έχει ελάχιστες καμία, ή ακόμα και αν τα σκορ ανωμαλίας είναι πολύ μικρά, μέχρι να πετύχει τον απαιτούμενο αριθμό. Άλλες συναρτήσεις είναι είναι ο μέσος όρος και το άθροισμα. Εμείς εδώ για τα πειράματά μας έχουμε επιλέξει το majority voting το οποίο χρησιμοποιείται και από τους Random Forest. Τελικά μετά την επιλογή ενός φράγματος έχουμε τον εντοπισμό των ανωμαλιών.
+	The choice of collection function also plays an important role in the performance of the algorithm. A well-known one is Breadth-First which selects the item with the highest score of the first algorithm as anomaly, then selects the highest score of the second algorithm as anomaly until it reaches the last algorithm. It then goes to the second largest element of the last algorithm and selects it as an anomaly and does the same until it returns to the first. This process is done until we reach a certain number/percentage of anomalies. This function, although it is very popular, it has the following weakness, it will always find anomalies even if the data set has as few as none, or even if the anomaly scores are very small, until it reaches the required number. Other functions are mean and sum. Here, for our experiments, we have chosen majority voting, which is also used by Random Forests. Finally after selecting a threshold we have the detection of anomalies.
 	
 	\section{Feature Bagging with Rotation}
-	Η μέθοδος η οποία προτείνουμε ως μια καλή λύση στον εντοπισμό ανωμαλιών για χρονοσειρές πολλών μεταβλητών είναι μία γενίκευση της προηγούμενης μεθόδου. Η ιδέα έχει προκύψει από τη γνωστή μέθοδο κατηγοριοποίησης Rotation Forest \cite{Rotation2006Forest} η οποία επεκτείνει τα Random Forest. Ωστόσο δεν έχει υλοποιηθεί κάτι παρόμοιο στο πλαίσιο του εντοπισμού ανωμαλιών σε χρονοσειρές πολλών μεταβλητών (τουλάχιστον κατά την δική μας έρευνα).
+	The next method that we implement to increase the performance to detect anomalies for multi variate time series is a generalization of the previous method. The idea has emerged from the well known algorithm called Rotation Forest for the categorization problem {rotation2006Forest} which extends the Random Forest. However, nothing similar has been implemented in the context of detecting abnormalities in multivariate time series (at least in our research).
 	
-	Για να περιγράψουμε τη μέθοδο αυτή θα πρέπει πρώτα να κάνουμε μια περιγραφή του αλγόριθμου PCA. Ο PCA (Principal Component Analysis) είναι ένας αλγόριθμος γνωστός στη βιβλιογραφία για τη μείωση των διαστάσεων \cite{han2012mining}. Έστω $n$ η διαστάσεις τότε ο αλγόριθμος προσπαθεί να βρει $k\leq n$ $n\text{-διάστατα}$ διανύσματα τα οποία είναι ορθογώνια μεταξύ τους και ταυτόχρονα περιγράφουν/αντιπροσωπεύουν τα υπόλοιπα δεδομένα. Στη συνέχεια τα δεδομένα προβάλλονται στο χώρο που δημιουργούν αυτά τα διανύσματα έτσι προκύπτει μία αναπαράσταση των δεδομένων σε έναν χώρο λιγότερων διαστάσεων χωρίς να χάνεται πληροφορία. Η διαδικασία είναι η εξής:
+	In order to describe this method we should first make a description of the PCA algorithm. PCA (Principal Component Analysis) is an algorithm known in the literature for dimensionality reduction \cite{han2012mining}. Let $n$ be the dimensions then the algorithm tries to find $k\leq n$ $n\text{-dimensional}$ vectors which are orthogonal to each other and at the same time describe/represent the rest of the data. The data is then projected into the space created by these vectors, thus resulting in a representation of the data in a less dimensional space without losing information. The process is as follows:
 	
 	\begin{enumerate}
-		\item Αρχικά τα δεδομένα κανονικοποιούνται. Η κανονικοποίηση των δεδομένων βοηθάει στο να μην επιτρέψει τις πολύ υψηλές τιμές να κυριαρχήσουν και να επηρεάσουν το αποτέλεσμα.
-		\item Για κάθε διάσταση υπολογίζεται η μέση τιμή.
-		\item Στη συνέχεια υπολογίζεται ο πίνακας συσχέτισης (covariance matrix) για όλες τις διαστάσεις. Δηλαδή $\text{COV}(X,Y) = \frac{1}{m} \cdot \mathlarger{\sum}\limits_{i=1}^{m}(X-\mu_X)(Y-\mu_Y) $
-		\item Έπειτα υπολογίζονται τα ιδιοδιανύσματα και οι ιδιοτιμές του προηγούμενου πίνακα. Δηλαδή $\text{det}(A-\lambda I) = 0$. Τα διανύσματα αυτά λέγονται και Principal Components ενώ οι τιμές αναπαριστούν τη "σημαντικότητα".
-		\item Bάζουμε σε φθίνουσα σειρά τα διανύσματα ανάλογα με τις ιδιοτιμές. Δηλαδή πρώτα μπαίνει το διάνυσμα με τη μεγαλύτερη ιδιοτιμή, μετά αυτό με την αμέσως επόμενη μεγαλύτερη ιδιοτιμή κοκ. Τα διανύσματα που επιλέγονται είναι τα $k$ πρώτα.
-		\item Τέλος παίρνουμε τον πίνακα με τα ιδιοδιανύσματα και πολλαπλασιάζουμε τον ανάστροφο του, με τον αρχικό πίνακα δεδομένων ώστε να γίνει η μετατροπή, άρα:
+		\item First the data is normalized. Normalizing the data helps prevent very high values from dominating and influencing the result.
+		\item For each dimension the average value is calculated.
+		\item The correlation matrix (covariance matrix) is then calculated for all dimensions. That is $\text{COV}(X,Y) = \frac{1}{m} \cdot \mathlarger{\sum}\limits_{i=1}^{m}(X-\mu_X)(Y-\ mu_Y) $
+		\item Then the eigenvectors and eigenvalues of the previous table are calculated. That is $\text{det}(A-\lambda I) = 0$. These vectors are also called Principal Components while the values represent the "importance".
+		\item We put the vectors in descending order according to the eigenvalues. That is, the vector with the largest eigenvalue is entered first, then the one with the next largest eigenvalue etc. The vectors chosen are the $k$ first.
+		\item Finally we take the matrix with the eigenvectors and multiply its inverse with the original data matrix to make the conversion, so:
 		\[
 		\begin{pmatrix}
 			\text{new data}
@@ -1057,16 +1067,16 @@
 		\end{pmatrix}		
 		\]
 	\end{enumerate}
-	Έτσι λοιπόν καταφέρνουμε να μειώσουμε τις διαστάσεις από $n$ σε $k$. Αν λοιπόν κρατήσουμε όλα τα ιδιοδιανύσματα και δεν αφήσουμε κανένα απέξω είναι σαν να στρέφουμε τους άξονες των δεδομένων. Αυτή η ιδέα δίνει τη δυνατότητα στο μοντέλο να δει τα δεδομένα από άλλη "οπτική" γωνία επιτρέποντάς του να αυξήσει την απόδοσή του. Επιπλέον χρησιμοποιείται το Feature Bagging ώστε να έχουμε όλα τα πλεονεκτήματα που είδαμε προηγουμένως. Αρχικά επιλέγουμε τυχαία ένα υποσύνολο από το σύνολο των Features στη συνέχεια εφαρμόζεται ο αλγόριθμος PCA σε αυτό το υποσύνολο. Παίρνουμε τα νέα δεδομένα και εκπαιδεύουμε έναν βασικό αλγόριθμο. Αυτό γίνεται για κάθε βασικό αλγόριθμο που πρόκειται να συνθέσει το ensemble μοντέλο. Στο τέλος μαζεύονται όλα τα αποτελέσματα και εφαρμόζεται μια συνάρτηση συλλογής. Παρακάτω δίνουμε αναλυτικά τη διαδικασία που ακολουθεί ο αλγόριθμος.
+	So we manage to reduce dimensions from $ N $ to $ k $. So if we keep all the eigenvectors and leave no one out it is like turning the axes of the data. This idea enables the model to see the data from another "visual" angle by allowing it to increase its performance. In addition, feature bagging is used to have all the advantages we saw earlier. First we randomly select a subset of all the features then the PCA algorithm is applied to this subset. We get the new data and we train a basic algorithm. This is done for any basic algorithm that the ensemble model is to compose. In the end all results are collected and a collection function is applied. Below we give in detail the procedure followed by the algorithm.
 	
-	Έστω $\mathcal{X}$ μεγέθους $N$ το σύνολο δεδομένων που διαθέτουμε για να κάνουμε την εκπαίδευση του μοντέλου. Τα στοιχεία του $\mathcal{X}$ έχουν $n$ διαστάσεις οπότε ο πίνακας των δεδομένων, έστω $A$, είναι διάστασης $N\times n$. Έστω $D$ το σύνολο των Features και $L$ το πλήθος τον αλγορίθμων που θα χρησιμοποιηθούν. Για κάθε βασικό αλγόριθμο έχουμε:
+	Let $\mathcal{x}$ of size $N$ our data set to make the model training. The $ \mathcal{x}$ have $ n $ dimensions so the data table, say $ A $, is a $ N \ times n $ dimension. Let $ D $ the total of features and $ L $ the multitude of the algorithms to be used. For each basic algorithm we have:
 	\begin{itemize}
-		\item  Επιλέγουμε έναν τυχαίο αριθμό $F_l$ από μία ομοιόμορφη κατανομή ανάμεσα στο $\lfloor n \rfloor$ και $(n-1)$. Εδώ το $l$ συμβολίζει τον $l-\text{οστό}$ αλγόριθμο.
-		\item Στη συνέχεια επιλέγουμε χωρίς επανάθεση τυχαία $N_t$ features και δημιουργούμε ένα σύνολο από features $F\subseteq D$ και παίρνουμε μόνο αυτά τα features για τα δεδομένα μας.
-		\item Επιλέγουμε ένα τυχαίο αριθμό $K$ και χωρίζουμε το σύνολο $F$ σε $K$ υποσύνολα. Τα υποσύνολα αυτά μπορεί να είναι ξένα ή και όχι. Για να αυξήσουμε όμως τη διαφορετικότητα ανάμεσα στους βασικούς αλγόριθμους επιλέγουμε να είναι ξένα. Έτσι τα δεδομένα κάθε υποσυνόλου αποτελείται από $M=n/K$ features.
-		\item Επιλέγουμε ένα ποσοστό του συνόλου $\mathcal{X}$. Στο επόμενο βήμα θα εξηγήσουμε γιατί.
-		\item Πάνω σε αυτά τα υποσύνολα εφαρμόζουμε το PCA και αποθηκεύουμε τους συντελεστές των principal components, έστω $a_{l,k}^{1},...a_{l,k}^{M}$, όπου με $k$ συμβολίζουμε το $k\text{-οστό}$ υποσύνολο από τα $K$. Στο προηγούμενο βήμα έχουμε επιλέξει ένα ποσοστό επί του συνόλου. Αυτό έγινε για ενισχύσουμε τη διαφορετικότητα ανάμεσα στους συντελεστές σε περίπτωση που τυχαία επιλεγούν ίδια features ανάμεσα στους βασικούς αλγόριθμους. Έτσι ακόμα και ίδιες επιλογές να γίνουν από δύο βασικούς αλγόριθμους οι συντελεστές θα είναι διαφορετικοί, και τελικά θα πετύχουμε τη διαφορετικότητα που θα θέλαμε.
-		\item Από το προηγούμενο βήμα παράγουμε έναν πίνακα στροφής για τον βασικό αλγόριθμο $l$: 
+		\item We select a random number $F_l$ from a uniform distribution between $\lfloor n \rfloor$ and $(n-1)$. Here $l$ denotes the $l$ algorithm.
+		\item Then we randomly select without repetition $N_t$ features and create a set of features $F\subseteq D$ and take only these features for our data.
+		\item We choose a random number $K$ and divide the set $F$ into $K$ subsets. These subsets may or may not be disjoint. But to increase the diversity between the basic algorithms we choose to be disjoint. Thus the data of each subset consists of $M=n/K$ features.
+		\item We choose a percentage of the set $\mathcal{X}$. In the next step we will explain why.
+		\item On these subsets we apply PCA and store the coefficients of the principal components, let $a_{l,k}^{1},...a_{l,k}^{M}$, where with $k $ denotes the $k$ subset of $K$. In the previous step we have chosen a percentage of the total. This was done to strengthen the diversity between the coefficients in case the same features are randomly selected between the basic algorithms. So even if the same choices are made by two basic algorithms, the coefficients will be different, and finally we will achieve the diversity we would like.
+		\item From the previous step we generate a pivot table for the basic algorithm $l$:
 		\[
 		R_l = 
 		\begin{pmatrix}
@@ -1076,32 +1086,32 @@
 			[0] & [0] & \cdots & a_{l,K}^{1},...a_{l,K}^{M}
 		\end{pmatrix}		
 		\]
-		\item Στο προηγούμενο βήμα πρέπει να προσέξουμε ότι εφόσον τα K-υποσύνολα έχουν επιλέξει τυχαία τα features τα $a_i$ δεν είναι στη σειρά. Οπότε σε αυτό το βήμα τοποθετούμε με τα $a_i$ με τη σειρά που παρατηρούνται τα αντίστοιχα features. Έστω $R^{\text{ordered}}_l$ o πίνακας με τη σωστή σειρά.
-		\item Τελικά παίρνουμε τα νέα δεδομένα πολλαπλασιάζοντας $X^l_\text{new} = X_l R^{\text{ordered}}_l$ όπου $X_l$ είναι τα αρχικά δεδομένα που θα δίναμε στον αλγόριθμο $l$ πριν την εφαρμογή του PCA. Ο αλγόριθμος $l$ εκπαιδεύεται σε αυτά τα δεδομένα.
-		\item Σαν τελικό βήμα της διαδικασίας αφού έχουμε εκπαιδεύσει $L$ βασικούς αλγόριθμους, εφαρμόζουμε μία συνάρτηση συλλογής. Εμείς αποφασίσαμε να ακολουθήσουμε το παράδειγμα των Random Forest και να χρησιμοποιήσουμε το Majority Voting.
+		\item In the previous step we have to pay attention that since the K-subsets have randomly chosen the features $a_i$ are not in order. So in this step we place $a_i$ in the order in which the corresponding features are observed. Let $R^{\text{ordered}}_l$ be a properly ordered matrix.
+		\item Finally we get the new data by multiplying $X^l_\text{new} = X_l R^{\text{ordered}}_l$ where $X_l$ is the initial data we would give to the algorithm $l$ before PCA applied. Algorithm $l$ is trained on this data.
+		\item As a final step in the process after we have trained $L$ basic algorithms, we apply a collection function. We decided to follow the example of Random Forest and use Majority Voting.
 	\end{itemize}
-	Στη διαδικασία αυτή θα παρατηρήσουμε ότι το ποσοστό των στοιχείων που κρατάμε για να πετύχουμε τη διαφορετικότητα ανάμεσα στους βασικούς αλγόριθμους και ο αριθμός $K$ είναι παράμετροι του ensemble.
+	In this process we will notice that the percentage of the elements we keep to achieve diversity between the basic algorithms and the $ K$ number, are parameters in this ensemble method.
 	
-	Ο αλγόριθμος αυτός όπως θα δούμε και παρακάτω φαίνεται να δίνει πολύ καλά αποτελέσματα. Ένα μειονέκτημα που έχει είναι οι πολλές παράμετροι που πρέπει να επιλέξουμε. Ο αλγόριθμος πέρα από τις παραμέτρους των βασικών αλγόριθμων που πρέπει να επιλεχθούν, έχει επιπλέον την παράμετρο $K$ και το ποσοστό των στοιχείων. Επιπλέον το μεγαλύτερο μειονέκτημά του είναι ο μεγάλος χρόνος εκπαίδευσης. Ο χρόνος εκπαίδευσής του εξαρτάται από 2 παράγοντες. Αρχικά έχουμε το χρόνο εκπαίδευσης κάθε βασικού υπο-μοντέλου και μετά έχουμε το χρόνο που χρειάζεται ο PCA ο οποίος είναι εξαιρετικά χρονοβόρος. Έτσι ο χρόνος που χρειάζεται ένα τέτοιο ensemble να εκπαιδευτεί είναι αρκετά μεγάλος.
+	This algorithm as we shall see below seems to give very good results. One disadvantage it has is the many parameters we have to choose. The algorithm, in addition to the parameters of the basic algorithms to be selected, has an additional $ K $ to be selected and the percentage of elements to be selected. In addition, its largest disadvantage is the long training time. Its training time depends on 2 factors. Initially we have the training time of every basic sub-model and then we have the time it takes for the PCA, which is extremely time-consuming. So the time it takes such an ensemble to be trained is quite long.
 	
 	\section{Stacking Feature Bagging with Rotation Models}
-	Όπως είπαμε και πριν στην τεχνική που ονομάζεται Stacking εκπαιδεύονται όλα τα μοντέλα παράλληλα. Με βάση την έξοδο των μοντέλων στο πρώτο βήμα εκπαιδεύεται ένα μετα-μοντέλο. Για την υλοποίηση της τεχνικής αυτής εμείς χρησιμοποιούμε στο πρώτο στάδιο μοντέλα που έχουν κατασκευαστεί από τη μέθοδο Feature Bagging with Rotation και στη συνέχεια χρησιμοποιούμε έναν Logistic Regressor ως μετα-μοντέλο. Η διαδικασία είναι η εξής:
+	As we said before, in the technique called Stacking, all models are trained in parallel. Based on the output of the models in the first step, a meta-learner is trained. To implement this technique we use in the first stage, models which built by the Feature Bagging with Rotation method and then we use a Logistic Regressor as a meta-learner. The process is as follows:
 	
 	\begin{itemize}
-		\item Αρχικά επιλέγουμε ένα υποσύνολο των δεδομένων στο οποίο θα γίνει η εκπαίδευση. Το υποσύνολο αυτό το χωρίζουμε σε δύο υποσύνολα, $A$ και $B$. Στο $A$ θα εκπαιδευτούν τα επιμέρους μοντέλα ενώ στο $B$ θα εκπαιδευτεί το μετα-μοντέλο.
-		\item Επιλέγουμε έναν αριθμό $k>1$
-		\item Για κάθε βασικό μοντέλο κατασκευάζονται $k_n$ μοντέλα με την τεχνική Feature Bagging with Rotation όπως περιγράψαμε νωρίτερα (όπου $n$ είναι το n-οστό βασικό μοντέλο).
-		\item Κάθε μοντέλο εκπαιδεύεται και παράγει ένα score ανωμαλίας.
-		\item Με αυτά τα επιμέρους μοντέλα κάνουμε προβλέψεις σε δεδομένα που δεν έχουν εκπαιδευτεί τα μοντέλα δηλαδή στο σύνολο $B$. Έτσι για κάθε σημείο παίρνουμε $k_n*n$ features (χαρακτηριστικά) όπου $k_n$ ο αριθμός που επιλέξαμε στην αρχή και $n$ ο αριθμός των αρχικών μας μοντέλων. Έτσι κατασκευάζεται ένα νέο σύνολο από το το σύνολο δεδομένων $B$, έστω $B'$ και για κάθε στοιχείο του έχουμε ότι $b_i = (SA_{k_n,n})_{k_n,n} \in \mathbb{R}^{k_n \times n}$, όπου με $SA$ συμβολίζουμε το σκορ ανωμαλίας που έχει δώσει το $k_n$-οστό μοντέλο το οποίο έχει παραχθεί από το n-οστό βασικό μοντέλο μέσω της τεχνικής Feature Bagging with Rotation.
-		\item Στο σύνολο $B'$ εφαρμόζουμε επιβλεπόμενη μάθηση εκπαιδεύοντας έναν Logistic Regressor.
+		\item First we select a subset of the data on which to train. We divide this subset into two subsets, $A$ and $B$. In $A$ the individual models will be trained while in $B$ the meta-learner will be trained. In this way there is no leak of the information between base models and the meta-learner.
+		\item We choose a number $k>1$.
+		\item For each base model, $k_n$ models are constructed using the Feature Bagging with Rotation technique as described earlier (where $n$ is the n-th base model).
+		\item Each model is trained and produces an anomaly score.
+		\item With these individual models we make predictions on data that the models have not been trained on, i.e. on the set $B$. So for each point we get $k_n*n$ features where $k_n$ is the number we chose at the beginning and $n$ is the number of our initial models. Thus a new set is constructed from the data set $B$, let it be $B'$ and for each of its elements we have $b_i = (SA_{k_n,n})_{k_n,n} \in \mathbb{R} ^{k_n \times n}$, where $SA$ denotes the anomaly score given by the $k_n$-th model generated from the n-th base model through the Feature Bagging with Rotation technique.
+		\item On set $B'$ we apply supervised learning by training a Logistic Regressor.
 	\end{itemize}
-	Αυτή η μέθοδος συνδυάζει όλα τα παραπάνω και το αποτέλεσμα είναι να πάρουμε ένα πολύ ισχυρό μοντέλο όπως θα δούμε και παρακάτω. Η αδυναμία αυτής της τεχνικής είναι ότι διατηρεί όλες τις δυσκολίες από τις παραπάνω τεχνικές και ο χρόνος εκπαίδευσης είναι κατά πολύ μεγαλύτερος.
+	This method combines all of the above and the result is to get a very powerful model as we will see below. The weakness of this technique is that it maintains all the challenges from the above techniques and the training time is much longer.
 	
-	\section{Αρχιτεκτονικές, Υπερπαράμετροι και Μεθοδολογία}
+	\section{Architectures, Hyperparameters and Methodology}
 	
-	Η εκπαίδευση για κάθε μοντέλο γίνεται σε κάθε σύνολο δεδομένων ξεχωριστά όπως και η πρόβλεψη. Όλα τα μοντέλα εκπαιδεύονται στα ίδια δεδομένα. Τα τελικά αποτελέσματα περιλαμβάνουν τις επιδόσεις ως προς όλα τα σύνολα δεδομένων. Επίσης έχουμε βγάλει αποτελέσματα και για τα βασικά μοντέλα ώστε να μπορεί να γίνει η σύγκριση μεταξύ τους. Η εκπαίδευση είναι χωρίς-επίβλεψη (εκτός από τις τεχνικές που περιλαμβάνουν έναν Logistic Regressor που το μοντέλο εκπαιδεύεται με μερική-επίβλεψη) οπότε κανένα μοντέλο δεν γνωρίζει την πληροφορία "anomaly". Η πληροφορία "anomaly" χρησιμοποιείται στο τέλος ώστε να υπολογίσουμε την απόδοση κάθε αλγόριθμου. Οι αρχιτεκτονικές και οι παράμετροι που χρησιμοποιούνται στα απλά μοντέλα εφαρμόζονται και στα μοντέλα που συνθέτουν τις ensemble τεχνικές. Τέλος στα δεδομένα δεν γίνεται κάποια προεπεξεργασία εκτός από κάποιου είδους κανονικοποίησης και δεν εφαρμόζεται η τεχνική του "ανακατέματος" (shuffling) διότι αυτό θα αφαιρούσε από τα δεδομένα μας την έννοια της χρονικής σειράς. Για να συγκρίνουμε τους αλγόριθμους υπολογίζεται το συνολικό F1 σκορ και το συνολικό AUC (ως προς όλα τα δεδομένα) για τον κάθε αλγόριθμο ενώ ταυτόχρονα παρέχουμε και τον confusion πίνακα.
+	Learning for each model is done in each data set individually as well as the prediction. All models are trained in the same data. The final results include the performance aggregated from all data sets. We have also produced results for the basic models so that the comparison can be made between ensemble methods and basic methods. The training is unsupervised (except for techniques that include a logistic regressor that the model is trained with partial surgery) so no model is aware of the information "Anomaly". The "Anomaly" information is used at the end to calculate the performance of each algorithm. The architectural and parameters used in simple models are also applied to models that make up ensemble techniques. Finally, the data does not be pre-processed other than some kind of normalization and the "shuffling" technique does not applied because this would remove the concept of time. In order to compare the algorithms among themselves, the total F1 score and the total AUC (for all data) are calculated for each algorithm while at the same time we provide the confusion table.
 	
-	Έστω ότι τα σύνολα δεδομένων (κάθε σύνολο είναι μία χρονοσειρά πολλών μεταβλητών) μπορεί να αναπαρασταθεί με $(t_0, t_1,....t_n)$  Το σύνολο εκπαίδευσης κάθε συνόλου δεδομένων είναι από τη στιγμή $t_0$ έως τη στιγμή $t_{399}$ και το σύνολο του τεστ είναι $(t_{400}, t_{401},...t_n)$. Στις περιπτώσεις που έχει χρησιμοποιηθεί ο Logistic Regressor το σύνολο εκπαίδευσης των επιμέρους μοντέλων αποτελείται από τα σημεία $(t_0, t_1,....t_{399})$, το σύνολο εκπαίδευσης με ημι-επιβλεπόμενη μάθηση του Logistic Regressor αποτελείται από τα σημεία $(t_{400}, t_{401},...t_{599})$ και τα υπόλοιπα σημεία χρησιμοποιούνται σαν τεστ (Το μέσο μέγεθος των χρονοσειρών είναι περίπου ~1100 χρονικές στιγμές). Τα βασικά μοντέλα που επιλέξαμε είναι Autoencoder, Convolutional Autoencoder, LSTM, LSTM Autoencoder και LSTM Variational Autoencoder και στο Σχ.~\ref{fig:plot_model_architecture_model} μπορούμε να δούμε τις αρχιτεκτονικές τους.
+	Let the data sets (each set is a multivariate time series) can be represented by $(t_0, t_1,....t_n)$ The training set of each data set is from time $t_0$ to time $t_{ 399}$ and the test set is $(t_{400}, t_{401},...t_n)$. In the cases where the Logistic Regressor has been used the training set of the individual models consists of the points $(t_0, t_1,....t_{399})$, the training set with semi-supervised learning of the Logistic Regressor consists of the points $(t_{400}, t_{401},...t_{599})$ and the remaining points are used as tests (The average size of the time series is about ~1100 time points). The basic models we chose are Autoencoder, Convolutional Autoencoder, LSTM, LSTM Autoencoder and LSTM Variational Autoencoder and in Fig.~\ref{fig:plot_model_architecture_model} we can see their architectures.
 	
 	\begin{figure}[H]
 		\begin{subfigure}[b]{0.3\textwidth}
@@ -1139,15 +1149,15 @@
 			\label{fig:plot_model_lstm_vae_model}
 		\end{subfigure}
 		
-		\caption{Αρχιτεκτονικές Βασικών Μοντέλων}
+		\caption{Basic Models Architectures}
 		\label{fig:plot_model_architecture_model}
 	\end{figure}
 	
-	Το μέγεθος του παραθύρου που χρησιμοποιούμε είναι 60 χρονικές στιγμές για τον Convolutional Autoencoder, 5 για τον LSTM, 10 για τον LSTM Autoencoder και 5 για τον LSTM Variational Autoencoder. Για την τεχνική Feature Bagging χρησιμοποιήσαμε 17 estimators. Για την τεχνική Feature Bagging with Rotation χρησιμοποιήθηκαν 17 estimators, το Κ το θέσαμε 2 και το ποσοστό των δεδομένων που χρησιμοποιήθηκαν για τον αλγόριθμο PCA ήταν στο 75\%. Τέλος στο Stacking των Feature Bagging with Rotation με μετα-μοντέλο έναν Logistic Regressor χρησιμοποιήθηκαν 12 estimators για κάθε μία από τους 5 βασικούς αλγόριθμους όπου οι παράμετροι για κάθε μία από αυτές ήταν K=2 και το ποσοστό στο 80\%. Να θυμίσουμε εδώ ότι οι βασικές τεχνικές και οι τεχνικές Majority Voting και Logistic Regression χρησιμοποιούν όλα τα features ενώ στις υπόλοιπες τεχνικές 
+	The window size we use is 60 time moments for the Convolutional Autoencoder, 5 for the LSTM, 10 for the LSTM Autoencoder, and 5 for the LSTM Variational Autoencoder. For the Feature Bagging technique we used 17 estimators. For the Feature Bagging with Rotation technique, 17 estimators were used, K was set to 2, and the percentage of data used for the PCA algorithm was 75\%. Finally, in the Stacking of Feature Bagging with Rotation with a Logistic Regressor meta-learner, 12 estimators were used for each of the 5 basic algorithms where the parameters for each of them were K=2 and the percentage at 80\%. Let's remember here that the basic techniques and the Majority Voting and Logistic Regression techniques use all the features, while in the rest of the techniques the features that used are based on what we described according to the technique was applied.
 	
-	\chapter{Αποτελέσματα}
-	\section{Αποτελέσματα}
-	Οι παραπάνω τεχνικές εφαρμόστηκαν σε 31 σύνολα δεδομένων τα οποία προσομοιώνουν διαφορετικές καταστάσεις. Για κάθε ένα από αυτά τα σύνολα τα μοντέλα εκπαιδεύονται σε ένα κομμάτι τους και στη συνέχεια κάνουν τις προβλέψεις σε ολόκληρα τα σύνολα. Στο πλαίσιο του εντοπισμού των ανωμαλιών δεν μπορούμε να μετρήσουμε την απόδοση ενός μοντέλου με την κλασική μετρική "Accuracy" η οποία δίνεται από το $\text{Accuracy} = \frac{\text{TP}+\text{TN}}{\text{TP}+\text{FP}+\text{TN}+\text{FN}}$ όπου TP, FP, TN, FN είναι τα True Positives, False Positives, True Negative, False Negatives αντίστοιχα. Οπότε επιλέξαμε να μετρήσουμε τις αποδόσεις με βάση τα F1 score και το AUC (οι ορισμοί δόθηκαν σε προηγούμενο κεφάλαιο). Στη συνέχεια θα δώσουμε τα αποτελέσματα από τις τεχνικές που αναφέραμε ως προς το σύνολο των δεδομένων, πρώτα όμως, θα πρέπει να εξηγήσουμε τι είναι ένας Confusion Πίνακας.
+	\chapter{Results}
+	\section{Confusion Matrix}
+	The above techniques were applied to 31 datasets simulating different situations. For each of these ensembles the models are trained on a piece of them and then make the predictions on the entire ensembles. In the context of anomaly detection we cannot measure the performance of a model with the classic "Accuracy" metric which is given by $\text{Accuracy} = \frac{\text{TP}+\text{TN}}{\ text{TP}+\text{FP}+\text{TN}+\text{FN}}$ where TP, FP, TN, FN are True Positives, False Positives, True Negatives, False Negatives respectively. So we chose to measure the performance based on F1 score and AUC (the definitions were given in a previous chapter). Next we will give the results from the techniques we mentioned on the data set, but first, we should explain what a Confusion Table is.
 	
 	\begin{figure}[h]
 		\centering
@@ -1156,7 +1166,7 @@
 		\label{fig:confusionmatrixexplain}
 	\end{figure}
 	
-	Ένας Confusion Πίνακας αποτελείται από 4 περιοχές τα True Positives, True Negative, False Positives και False Negative. Στην αριστερή πλευρά του πίνακα μπορούμε να διαλέξουμε ανάμεσα στα πραγματικά δεδομένα (πάνω γραμμή τα πραγματικά φυσιολογικά σημεία ενώ στην κάτω γραμμή έχουμε έχουμε τα πραγματικά Ανώμαλα δεδομένα). Στην κάτω πλευρά του πίνακα μπορούμε να διαλέξουμε ανάμεσα στις προβλέψεις (στην αριστερή στήλη έχουμε τις προβλέψεις των φυσιολογικών σημείων ενώ στη δεξιά τις προβλέψεις των ανώμαλων σημείων). Στο Σχ.~\ref{fig:confusionmatrixexplain} βλέπουμε έναν confusion matrix όπου αντί για αριθμούς έχουμε σημειώσει σε κάθε περιοχή τι δείχνει. Σημειώνουμε εδώ ότι το ιδανικό μοντέλο θα είχε στις περιοχές των FP και FN τον αριθμό μηδέν.
+	A Confusion Table consists of 4 areas True Positives, True Negatives, False Positives and False Negatives. On the left side of the table we can choose between the real data (top line the real normal points while in the bottom line we have the real Abnormal data). On the lower side of the table we can choose between the predictions (in the left column we have the predictions of the normal points while on the right the predictions of the abnormal points). In Fig.~\ref{fig:confusionmatrixexplain} we see a confusion matrix where instead of numbers we have noted in each area what it shows. We note here that the ideal model would have in the regions of FP and FN the number zero.
 	
 	\begin{figure}[H]
 		\centering
@@ -1194,11 +1204,11 @@
 			
 			\label{fig:anomaly_by_lstm_vae}
 		\end{subfigure}
-		\caption{Βασικά Μοντέλα}
+		\caption{Basic Models}
 		\label{fig:basicmodelsconfusion}
 	\end{figure}
 	
-	Παράλληλα με τις τεχνικές εκπαιδεύσαμε και τα βασικά μοντέλα ώστε να έχουμε ένα μέτρο σύγκρισης στη συνέχεια. Στο Στο Σχ.~\ref{fig:basicmodelsconfusion} βλέπουμε τα αποτελέσματα που είχαν τα βασικά μοντέλα. Παρατηρούμε ότι τα μοντέλα πετυχαίνουν καλές επιδόσεις ειδικότερα ο convolutional autoencoder και ο LSTM autoencoder.
+	Along with the techniques, we also trained the basic models so that we have a measure of comparison afterwards. In Fig.~\ref{fig:basicmodelsconfusion} we see the results that the basic models had. We observe that the models achieve good performance especially the convolutional autoencoder and the LSTM autoencoder.
 	
 	\begin{figure}[H]
 		\centering
@@ -1260,9 +1270,9 @@
 		\label{fig:featurebaggingmodelsconfusion}
 	\end{figure}
 	
-	Στη συνέχεια δίνουμε τα αποτελέσματα για τις τεχνικές που αναφέραμε προηγουμένως. Ξεκινάμε με τον Majority Voting και την τεχνική όπου εφαρμόζουμε ημι-επιβλεπόμενη μάθηση με Logistic Regression Σχ.~\ref{fig:majoritylogistic}. Παρατηρούμε ότι και οι δύο αλγόριθμοι είναι πολύ κοντά στα σημεία που δεν είναι ανωμαλίες όμως διαφέρουν στα ανώμαλα σημεία. Όπως βλέπουμε ο Logistic Regression πετυχαίνει καλύτερα αποτελέσματα εκεί.
+	Then we give the results for the techniques we mentioned earlier. We start with Majority Voting and the technique where we apply semi-supervised learning with logistic regression fig.~\ref{fig:majoritylogistic}. We notice that both algorithms are very close to the points that are not abnormalities but differ in abnormal points. As we can see, Logistic Regression achieves better results there.
 	
-	Στη συνέχεια παρουσιάζουμε τα αποτελέσματα της τεχνικής Feature Bagging Σχ.~\ref{fig:featurebaggingmodelsconfusion}. Παρατηρούμε ότι εδώ ανάλογα με τον βασικό αλγόριθμο που έχει χρησιμοποιηθεί υπάρχει μια ποικιλία στα αποτελέσματα. Στην επόμενη ενότητα θα δούμε μία σύγκριση ανάμεσα σε κάθε βασικό αλγόριθμο και στην τεχνική Feature Bagging που του αντιστοιχεί.
+	Then we present the results of the Feature Bagging technique Fig.~\ref{fig:featurebaggingmodelsconfusion}. We observe that there is a variety of results here depending on the basic algorithm used. In the next section we will see a comparison between each basic algorithm and the technique of feature baging that corresponds to it.
 	
 	\begin{figure}[H]
 		\centering
@@ -1304,20 +1314,20 @@
 		\label{fig:featurebaggingwithrotationmodelsconfusion}
 	\end{figure}
 	
-	Στο Σχ.~\ref{fig:featurebaggingwithrotationmodelsconfusion} παρουσιάζουμε τα αποτελέσματα της τεχνικής Feature Bagging with Rotation όπου με τη βοήθεια του αλγόριθμου PCA στρίβουμε τους άξονες. Παρατηρούμε και εδώ ότι ανάλογα με τον βασικό αλγόριθμο που έχει χρησιμοποιηθεί υπάρχει μια ποικιλία στα αποτελέσματα.
+	In Fig.~\ref{fig:featurebaggingwithrotationmodelsconfusion} we present the results of the Feature Bagging with Rotation technique where with the help of the PCA algorithm we turn the axes. We notice here, that depending on the basic algorithm that has been used there is a variety in the results, but generally this techniques performs well.
 	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=\textwidth/3]{anomaly_by_logistic_regression_mixed_models.png}
+		\includegraphics[width=\textwidth/2]{anomaly_by_logistic_regression_mixed_models.png}
 		\caption{Stacking, Mixed Models: Feature Bagging with Rotation, Meta-Learner: Logistic Regressor}
 		\label{fig:anomaly_by_logistic_regression_mixed_models}
 	\end{figure}
 	
-	Τέλος παραθέτουμε τα αποτελέσματα από το Stacking που χρησιμοποιήσαμε σε μοντέλα κατασκευασμένα από την τεχνική Feature Bagging with Rotation με μετα-μοντέλο έναν Logistic Regressor Σχ.~\ref{fig:anomaly_by_logistic_regression_mixed_models}
+	Finally we list the results from the Stacking we used on models made by the Feature Bagging with Rotation technique with a Logistic Regressor meta-model Fig.~\ref{fig:anomaly_by_logistic_regression_mixed_models}.
 	
-	\section{Συγκρίσεις}
+	\section{Comparisons based on F1 and AUC Score}
 	
-	Στους παρακάτω πίνακες γίνεται μία σύγκριση ανάμεσα στα βασικά μοντέλα και τις τεχνικές. Όπως είπαμε και προηγουμένως χρησιμοποιούμε τις μετρικές F1 score και AUC για να αξιολογήσουμε τα μοντέλα. Με βάση αυτές τις μετρικές παρατηρούμε ότι η τεχνική Feature Bagging δίνει αρκετά καλά αποτελέσματα σε κάποιες περιπτώσεις ενώ η τεχνική Feature Bagging with Rotation κερδίζει σε όλες τις συγκρίσεις εκτός από την περίπτωση που το βασικό μοντέλο είναι ο LSTM. Επιπλέον ο Majority Voting είναι περίπου στη μέση (κάτι που το περιμέναμε εφόσον στηρίζεται στην πλειοψηφία) ενώ ο αλγόριθμος με το Logistic Regression κερδίζει τους βασικούς αλγόριθμους καθώς στηρίζεται στο γεγονός ότι μαθαίνει να κάνει την καλύτερη επιλογή στηριζόμενος στην πρόβλεψη των βασικών. Επιπλέον είναι ο μόνος αλγόριθμος που γνωρίζει έστω και λίγες ετικέτες από τα δεδομένα. Τέλος αξίζει να αναφερθεί ότι δεν μπορούμε να κάνουμε συγκρίσεις μεταξύ των Feature Bagging τεχνικών διότι δεν στηρίζονται στους ίδιους βασικούς αλγόριθμους. Το ίδιο συμβαίνει και με την τεχνική Feature Bagging with Rotation. 
+	The tables below show a comparison between basic models and ensemble techniques. As we said before, we use the F1 Score and AUC metrics to evaluate the models. Based on these metrics we notice that the Feature Bagging technique gives quite good results in some cases while the technique of Feature Bagging with Rotation earns in all comparisons except if the basic model is LSTM. In addition, Majority Voting is about in the middle (which we expected because it relies on the majority) while the algorithm with the logistic regression wins the basic algorithms as it relies on learning to make the best choice based on prediction that the basic methods feed to it. In addition, it is the only algorithm that knows at least a few labels from the data. Finally, it is worth noting that we cannot make comparisons between feature bagging techniques because they do not rely on the same basic algorithms. The same is true with the technique of feature baging with rotation. Finally we observe that the advantages of Logistic Regression applies to the last algorithm which take advantage of Feature Bagging with Rotation models through stacking them. The Logistic Regressor we used as a meta-learner gives us the best performance which it was expected because the simpler method of the above Logistic Regression above performed very well on the basic models.
 	
 	\begin{table}[H]
 		\centering
@@ -1341,7 +1351,9 @@
 		\label{tab:comptabautoencoder}
 	\end{table}
 	
-	Παρατηρούμε στους αλγόριθμους Autoencoder, LSTM Autoencoder και LSTM Variational Autoencoder ο Feature Bagging έχει καλύτερη επίδοση από το αντίστοιχο βασικό μοντέλο και ο Feature Bagging with Rotation καλύτερη επίδοση από τον Feature Bagging ενώ σε σχέση με τα βασικά μοντέλα η επίδοση βελτιώνεται 2\% Πίνακας~\ref{tab:comptabautoencoder} Πίνακας~\ref{tab:comptablstmautoencoder} Πίνακας~\ref{tab:comptablstmvariationalautoencoder}. Στην περίπτωση του Convolutional Autoencoder το Feature Bagging with Rotation συνεχίζει να έχει καλύτερη επίδοση όμως σε αντίθεση με τα προηγούμενα ο Feature Bagging όχι Πίνακας~\ref{tab:comptablstm}. O μόνος βασικός αλγόριθμος που έχει καλύτερη επίδοση από τις αντίστοιχες εκδόσεις του Feature Bagging και Feature Bagging with Rotation είναι ο LSTM Πίνακας~\ref{tab:comptablstm}.
+	We observe that Autoencoder, LSTM Autoencoder and LSTM Variational Autoencoder Feature Bagging have better performance than the corresponding basic model and Feature Bagging with Rotation better performance than Feature Bagging. The FBR algorithm achieves an improvement of 2 \% compared to the basic models Table~\ref{tab:comptabautoencoder}, Table~\ref{tab:comptablstmautoencoder},  Table~\ref{tab:comptablstmvariationlautoencoder}. In the case of Convolutional Autoencoder, the feature baging with rotation continues to perform better but unlike the previous ones the algorithm Feature Bagging does not, Table~\ref{tab:comptabconvolutionalautoencoder}. The only basic algorithm that has better performance than the corresponding versions of Feature Bagging and Feature Bagging With Rotation is the LSTM Table~\ref{tab:comptablstm}. The comparison between these two techniques shows us that FBR method performs better than Feature Bagging in all cases.
+
+	It is worth to remind here that every Feature Bagging technique consist of models with the corresponding architecture. The same applies to Feature Bagging with Rotation algorithm. So for example in the case of LSTM Autoencoder, only LSTM Autoencoders created to compose an LSTM Autoencoder ensemble Feature Bagging. Furthermore the training was done with 17 estimators for each case in the Feature Bagging and the FBR techniques. Additionally in FBR technique we used K=2 and a percentage of data at 75 \%. 
 	
 	\begin{table}[H]
 		\centering
@@ -1431,7 +1443,7 @@
 		\label{tab:comptablstmvariationalautoencoder}
 	\end{table}
 	
-	Παρατηρούμε στους Πίνακες~\ref{tab:comptabautoencoder}-\ref{tab:comptablstmvariationalautoencoder} ότι η τεχνική Feature Bagging with Rotation ανταποκρίνεται καλύτερα σε όλα τα βασικά μοντέλα εκτός από την περίπτωση του LSTM όπου σε αυτή την περίπτωση αποτυγχάνει και η τεχνική Feature Bagging. Εδώ να θυμίσουμε πάλι ότι η εκπαίδευση έγινε με 17 estimators για κάθε περίπτωση, με K=2 και ποσοστό δεδομένων στο 75 \%.
+	Majority Voting is placed in the middle of the table with a slight difference from LSTM while at the same time it has achieved a better performance than Autoencoder by more than 8\% Table~\ref{tab:comptablstm}. In Majority Voting five models are used (the five models we described earlier). Every model's prediction weighted equal to the others and the prediction is made according the majority.
 	
 	\begin{table}[H]
 		\centering
@@ -1464,8 +1476,8 @@
 		\label{tab:comptabmajorityvoting}
 	\end{table}
 	
-	Ο Majority Voting έχει τοποθετηθεί στη μέση του πίνακα με μικρή διαφορά από το LSTM ενώ παράλληλα έχει πετύχει καλύτερη επίδοση πάνω από 8\% από τον Autoencoder Πίνακας~\ref{tab:comptablstm}. Τέλος ο Logistic Regressor πετυχαίνει καλύτερα αποτελέσματα από όλους τους βασικούς αλγόριθμους Πίνακας~\ref{tab:comptablogreg}
 	
+	In Table~\ref{tab:comptablogreg} we notice that Logistic Regressor achieves better results than all basic algorithms. This indicates that Logistic Regressor can combine efficiently the different algorithms. We remind that all five models were used in this technique. The five models were trained on a set A and the Logistic Regressor on a set B (Logistic Regression was trained on the predictions of the five models of the set B) where A and B do not share any information (they are disjoint). This decision taken in order to prevent information leakage.  
 	
 	\begin{table}[H]
 		\centering
@@ -1498,7 +1510,7 @@
 		\label{tab:comptablogreg}
 	\end{table}
 	
-	Τέλος την καλύτερη επίδοση πετυχαίνει ο αλγόριθμος που εφαρμόζουμε το Stacking των Feature Bagging with Rotation με μετα-μοντέλο ένα Logistic Regressor Πίνακας~\ref{tab:comptablogregmixedmodels}
+	Finally the best performance is achieved from when we use the Stacking method on Feature Bagging with Rotation models with meta-learner a Logistic Regressor Table~\ref{tab:comptablogregmixedmodels}. Because on the above results we saw that Feature Bagging with Rotation perform well compared to the Feature Bagging and the basic models and because of the Logistic Regressor which can combine pretty well the basic models we decided to compose an ensemble from these two components. So we created 12 models from each of the basic models with the FBR technique (meaning 12 models from LSTM with FBR technique, 12 models from Autoencoder with FBR technique etc) and we fed a Logistic Regressor. Again the training of individual models was done on a set A and the training of the Logistic Regressor on a set B, where A and B are disjoint, in order to avoid information leakage. The other parameters of the FBR methods, $K$ and the percentage of data, were set to 2 and 80 \% respectively. 
 	
 	\begin{table}[H]
 		\centering
@@ -1533,15 +1545,15 @@
 	
 	
 	
-	\chapter{Συμπεράσματα}
-	\section{Συμπεράσματα και Περαιτέρω επέκταση της εργασίας}
-	Στην εργασία αυτή υλοποιήσαμε διάφορες ensemble τεχνικές για την ανίχνευση ανωμαλιών σε χρονοσειρές πολλών μεταβλητών. Το πρόβλημα αυτό έχει προσεγγιστεί από διάφορους αλγόριθμους τόσο από στατιστικές τεχνικές όσο και από Μηχανικής μάθησης και βαθιάς μηχανικής μάθησης μοντέλα. Εμείς πήραμε δεδομένα κάποια βασικά μοντέλα βαθιάς μηχανικής μάθησης και στηριχθήκαμε σε αυτά ώστε να υλοποιήσουμε ensemble τεχνικές ώστε να πετύχουμε ακόμα καλύτερα αποτελέσματα. Τα ensemble μοντέλα που κατασκευάστηκαν αρχικά ήταν ένας Majority Voting ο οποίος είχε μια μέτρια επίδοση και ένας αλγόριθμος με ημι-επιβλεπόμενη εκπαίδευση όπου σαν τελικό μοντέλο χρησιμοποιήθηκε ένας Logistic Regressor. Στη συνέχεια υλοποιήθηκε ένα αλγόριθμος που ονομάζεται Feature Bagging ο οποίος μοιάζει πολύ με την τεχνική που χρησιμοποιείται στους Random Forest. Ο Feature Bagging έδωσε κάποια καλά αποτελέσματα σε κάποιες περιπτώσεις έναντι των βασικών μοντέλων. Στη συνέχεια από μια ιδέα που προέρχεται από τους Rotation Forest χρησιμοποιήθηκε ο PCA πάνω στον Feature Bagging με αποτέλεσμα να παραχθεί ένας αλγόριθμος οποίος στις περισσότερες περιπτώσεις είχε καλύτερη επίδοση από όλα τα παραπάνω και από τους βασικούς αλγόριθμους. Τέλος χρησιμοποιήθηκε μία stacking τεχνική με επιμέρους μοντέλα κατασκευασμένα από την τεχνική Feature Bagging with Rotation και μετα-μοντέλο έναν Logistic Regressor όπου πιάσαμε την καλύτερη επίδοση από όλες τις προηγούμενες τεχνικές. Οι ensemble τεχνικές είναι γνωστό ότι βελτιώνουν κατά πολύ τις επιδόσεις και λύνουν αρκετά προβλήματα. Τα παραπάνω αποτελέσματα μας δείχνουν ότι μπορούν να βοηθήσουν πάρα πολύ και στην ανίχνευση ανωμαλιών. Με τις ensemble μεθόδους μπορούμε να ξεπεράσουμε αρκετά τα απλά μοντέλα και να παραχθεί ένα υπερ-μοντέλο το οποίο θα εντοπίζει αρκετά αξιόπιστα τις ανωμαλίες. Ειδικότερα ο αλγόριθμος Feature Bagging with Rotation μπόρεσε να έχει 2\% καλύτερη επίδοση από τα βασικά μοντέλα σε κάποιες περιπτώσεις ενώ ο Feature Bagging όταν ήταν καλύτερος από ένα απλό μοντέλο είχε καλύτερη επίδοση περίπου 1\% σε μία περίπτωση ενώ στις άλλες δύο είχε λιγότερο από 1\%. Τελικά όταν εφαρμόσαμε το Stacking πετύχαμε περίπου 10 \% καλύτερη επίδοση σε σχέση με τα βασικά μοντέλα.
+	\chapter{Conclusions}
+	\section{Conclusions and extension of the work}
+	In this work we implemented several ensemble techniques for anomaly detection in multivariate time series. This problem has been approached by various algorithms both from statistical techniques and from Machine learning and deep machine learning models. We took some basic deep machine learning models and built on them to implement ensemble techniques to achieve even better results. The ensemble models built initially were a Majority Voting which had a moderate performance and a semi-supervised training algorithm where a Logistic Regressor was used as the final model. An algorithm called Feature Bagging was then implemented which is very similar to the technique used in Random Forests. Feature Bagging gave some good results in some cases against the base models. Then, from an idea derived from Rotation Forest, PCA was used on Feature Bagging, resulting in an algorithm that in most cases performed better than all of the above and the basic algorithms. Finally, a stacking technique was used with individual models made by the Feature Bagging with Rotation technique and a Logistic Regressor as a meta-learner where we got the best performance from all the previous techniques. Ensemble techniques are known to greatly improve performance and solve many problems. The above results show us that they can also help a lot in detecting anomalies. With the ensemble methods we can go far beyond the simple models and produce a hyper-model which will detect the anomalies quite reliably. In particular, the Feature Bagging with Rotation algorithm was able to perform 2\% better than the base models in some cases, while Feature Bagging when better than a simple model had a better performance of about 1\% in one case, while in the other two it had less than 1\% Finally when we applied Stacking we achieved about 10 \% better performance than the base models. Furthermore Stacking FBR models outperforms any other technique we used.
 	
-	Από τα παραπάνω μπορούμε να πούμε ότι αξίζει η περαιτέρω επέκταση της εργασίας και η προσπάθεια ανίχνευσης ανωμαλιών με ensemble τεχνικές καθώς φαίνεται ότι τα ensemble μοντέλα μπορούν να δώσουν λύσεις. Οι περισσότερες από τις τεχνικές χρειάζονται κάποια συνάρτηση συγκέντρωσης των αποτελεσμάτων οπότε θα μπορούσε αυτό να αποτελέσει αντικείμενο έρευνας ώστε με την κατάλληλη συνάρτηση να μπορούν να συνδυαστούν τα αποτελέσματα των βασικών μοντέλων πιο αποτελεσματικά. Οι Shahzad και Lavesson έχουν κάνει μία έρευνα \cite{shahzad2013comparative} στην οποία ερευνούν παραλλαγές του Majority Voting και φαίνεται ότι ο Majority Voting πετυχαίνει καλύτερα αποτελέσματα σαν αλγόριθμος αλλά θα ήταν ενδιαφέρον να ερευνηθεί αν μπορούν οι παραλλαγές να χρησιμοποιηθούν σαν συναρτήσεις επιλογής των τεχνικών που περιγράψαμε και αν μπορούν να δώσουν καλύτερα αποτελέσματα.
+	From the above we can say that it is worth further expanding the work and trying to detect anomalies with ensemble techniques as it seems that ensemble models can provide solutions. Most of the techniques need some function to aggregate the results so this could be the subject of research so that with the appropriate function the results of the basic models can be combined more efficiently. Shahzad and Lavesson have done a research \cite{shahzad2013comparative} in which they investigate variants of Majority Voting and it seems that Majority Voting achieves better results as an algorithm but it would be interesting to investigate whether the variants can be used as selection functions of the techniques we described and whether they can give better results.
 	
-	Επιπλέον τα σύνολα δεδομένων αποτελούνται από λίγα features, δηλαδή οι χρονοσειρές πολλών μεταβλητών αποτελούνται από λίγες μεταβλητές (συνολικά 8), αυτό σημαίνει ότι οι αλγόριθμοι αυτοί θα μπορούσαν να ερευνηθούν και σε παραπάνω διαστάσεις. Όσο αυξάνονται οι διαστάσεις τόσο πιο πολύ χάνεται το νόημα της ανωμαλίας κάτι που κάνει δύσκολο τον εντοπισμό, όμως πιστεύουμε ότι οι αλγόριθμοι αυτοί θα μπορούσαν να αντεπεξέλθουν πολύ καλά ειδικότερα οι αλγόριθμοι Feature Bagging και Feature Bagging with Rotation οι οποίοι μπορούν να εκμεταλλευτούν τις πολλές διαστάσεις.
+	In addition, the datasets consist of few features, i.e. the time series of many variables consist of few variables (8 in total), this means that these algorithms could be investigated in higher dimensions. As the dimensions increase, the meaning of the anomaly is lost, which makes it difficult to detect, but we believe that these algorithms could cope very well, especially the Feature Bagging and Feature Bagging with Rotation algorithms, which can take advantage of the many dimensions.
 	
-	Ένα άλλο κομμάτι σημαντικό για αυτούς τους αλγόριθμους είναι το κομμάτι της ταχύτητας. Παρατηρήσαμε ότι όσο αυξάνεται η πολυπλοκότητα τόσο αυξάνεται και ο χρόνος που χρειάζονται τα μοντέλα για να εκπαιδευτούν. Αυτό σημαίνει ότι είναι αδύνατον να πάμε σε πολύ μεγάλο αριθμό βασικών μοντέλων. Ο μεγάλος αριθμός βασικών μοντέλων θα μας έδινε τη δυνατότητα να έχουμε καλύτερες επιδόσεις όμως κάτι τέτοιο ήταν αδύνατον δεδομένου του χρόνου που έπαιρνε για παράδειγμα ένα Feature Bagging with Rotation να εκπαιδευτεί. Έτσι λοιπόν αξίζει να διερευνηθεί παραπάνω το πώς θα μπορούσε αυτό να γίνει σε πολύ λιγότερο χρόνο ώστε να μπορέσει ένας τέτοιος αλγόριθμος να αποτελείται από πολλά μικρά βασικά μοντέλα.
+	Another important part of these algorithms is the speed part. We noticed that as the complexity increases, so does the time it takes the models to train. This means that it is impossible to go to a very large number of base models. The large number of base models would have allowed us to have better performance but this was impossible given the time it took for example Feature Bagging with Rotation to train. So it is worth investigating further how this could be done in much less time so that such an algorithm could consist of many small basic models.
 	
 	
 	

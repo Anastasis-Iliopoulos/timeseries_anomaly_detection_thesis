@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (MiKTeX 22.12) (preloaded format=xelatex 2022.12.29)  20 JAN 2023 20:42
+This is XeTeX, Version 3.141592653-2.6-0.999994 (MiKTeX 22.12) (preloaded format=xelatex 2022.12.29)  24 JAN 2023 17:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1130,64 +1130,64 @@ g=tex-text;"
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
 less.
 (fancyhdr)                Please consider using the `twoside' option on input l
-ine 227.
+ine 230.
 
 \c@thewrima=\count342
 \c@askisi=\count343
 (Master_eng_Thesis_Anastasios_Iliopoulos.aux)
 \openout1 = `Master_eng_Thesis_Anastasios_Iliopoulos.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/pxmi/m/it on input line 383.
+LaTeX Font Info:    Checking defaults for OML/pxmi/m/it on input line 386.
 LaTeX Font Info:    Trying to load font information for OML+pxmi on input line 
-383.
+386.
 
 (C:\Users\a.iliopoulos_xe\AppData\Local\Programs\MiKTeX\tex/latex/pxfonts\omlpx
 mi.fd
 File: omlpxmi.fd 2000/12/14 v1.0
 )
-LaTeX Font Info:    ... okay on input line 383.
-LaTeX Font Info:    Checking defaults for OMS/pxsy/m/n on input line 383.
+LaTeX Font Info:    ... okay on input line 386.
+LaTeX Font Info:    Checking defaults for OMS/pxsy/m/n on input line 386.
 LaTeX Font Info:    Trying to load font information for OMS+pxsy on input line 
-383.
+386.
 
 (C:\Users\a.iliopoulos_xe\AppData\Local\Programs\MiKTeX\tex/latex/pxfonts\omspx
 sy.fd
 File: omspxsy.fd 2000/12/14 v1.0
 )
-LaTeX Font Info:    ... okay on input line 383.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 383.
-LaTeX Font Info:    ... okay on input line 383.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 383.
-LaTeX Font Info:    ... okay on input line 383.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 383.
+LaTeX Font Info:    ... okay on input line 386.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 386.
+LaTeX Font Info:    ... okay on input line 386.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 386.
+LaTeX Font Info:    ... okay on input line 386.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 386.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 3
-83.
+86.
 
 (C:\Users\a.iliopoulos_xe\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmr.f
 d
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 383.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 383.
-LaTeX Font Info:    ... okay on input line 383.
-LaTeX Font Info:    Checking defaults for OMX/pxex/m/n on input line 383.
+LaTeX Font Info:    ... okay on input line 386.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 386.
+LaTeX Font Info:    ... okay on input line 386.
+LaTeX Font Info:    Checking defaults for OMX/pxex/m/n on input line 386.
 LaTeX Font Info:    Trying to load font information for OMX+pxex on input line 
-383.
+386.
 
 (C:\Users\a.iliopoulos_xe\AppData\Local\Programs\MiKTeX\tex/latex/pxfonts\omxpx
 ex.fd
 File: omxpxex.fd 2000/12/14 v1.0
 )
-LaTeX Font Info:    ... okay on input line 383.
-LaTeX Font Info:    Checking defaults for U/pxexa/m/n on input line 383.
+LaTeX Font Info:    ... okay on input line 386.
+LaTeX Font Info:    Checking defaults for U/pxexa/m/n on input line 386.
 LaTeX Font Info:    Trying to load font information for U+pxexa on input line 3
-83.
+86.
 
 (C:\Users\a.iliopoulos_xe\AppData\Local\Programs\MiKTeX\tex/latex/pxfonts\upxex
 a.fd
 File: upxexa.fd 2000/12/14 v1.0
 )
-LaTeX Font Info:    ... okay on input line 383.
+LaTeX Font Info:    ... okay on input line 386.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1279,67 +1279,67 @@ Chapter 1.
 ]
 File: images//single.png Graphic file (type bmp)
 <images//single.png>
-LaTeX Info: Redefining \anw@print on input line 413.
-LaTeX Info: Redefining \anw@print on input line 413.
-LaTeX Info: Redefining \anw@print on input line 413.
-LaTeX Info: Redefining \anw@print on input line 413.
+LaTeX Info: Redefining \anw@print on input line 416.
+LaTeX Info: Redefining \anw@print on input line 416.
+LaTeX Info: Redefining \anw@print on input line 416.
+LaTeX Info: Redefining \anw@print on input line 416.
 File: images//multiple.png Graphic file (type bmp)
 <images//multiple.png>
-LaTeX Info: Redefining \anw@print on input line 420.
-LaTeX Info: Redefining \anw@print on input line 420.
-LaTeX Info: Redefining \anw@print on input line 420.
-LaTeX Info: Redefining \anw@print on input line 420.
+LaTeX Info: Redefining \anw@print on input line 423.
+LaTeX Info: Redefining \anw@print on input line 423.
+LaTeX Info: Redefining \anw@print on input line 423.
+LaTeX Info: Redefining \anw@print on input line 423.
  [3]
 Missing character: There is no Χ in font pxmi!
 [4]
 File: images//anomaly_vs_noise_clear_outlier.png Graphic file (type bmp)
 <images//anomaly_vs_noise_clear_outlier.png>
-LaTeX Info: Redefining \anw@print on input line 455.
-LaTeX Info: Redefining \anw@print on input line 455.
-LaTeX Info: Redefining \anw@print on input line 455.
-LaTeX Info: Redefining \anw@print on input line 455.
+LaTeX Info: Redefining \anw@print on input line 458.
+LaTeX Info: Redefining \anw@print on input line 458.
+LaTeX Info: Redefining \anw@print on input line 458.
+LaTeX Info: Redefining \anw@print on input line 458.
 File: images//anomaly_vs_noise_no_clear_outlier.png Graphic file (type bmp)
 <images//anomaly_vs_noise_no_clear_outlier.png>
-LaTeX Info: Redefining \anw@print on input line 462.
-LaTeX Info: Redefining \anw@print on input line 462.
-LaTeX Info: Redefining \anw@print on input line 462.
-LaTeX Info: Redefining \anw@print on input line 462.
+LaTeX Info: Redefining \anw@print on input line 465.
+LaTeX Info: Redefining \anw@print on input line 465.
+LaTeX Info: Redefining \anw@print on input line 465.
+LaTeX Info: Redefining \anw@print on input line 465.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [5]
-Overfull \hbox (0.676pt too wide) in paragraph at lines 480--481
+Overfull \hbox (0.676pt too wide) in paragraph at lines 483--484
 []\TU/Calibri(0)/b/n/12 Point Anomalies \TU/Calibri(0)/m/n/12 are called the po
 ints which deviate significantly from the rest of the sample.
  []
 
 
-Overfull \hbox (15.52365pt too wide) in paragraph at lines 482--483
+Overfull \hbox (15.52365pt too wide) in paragraph at lines 485--486
 []\TU/Calibri(0)/b/n/12 Collective Anomalies \TU/Calibri(0)/m/n/12 are called t
 he points which may be normal if we observe them individually
  []
 
 
-Overfull \hbox (1.46701pt too wide) in paragraph at lines 484--485
+Overfull \hbox (1.46701pt too wide) in paragraph at lines 487--488
 \TU/Calibri(0)/m/n/12 in a particular context but are reported as abnormal in a
 nother. For example the temperature
  []
 
 
-Overfull \hbox (3.61516pt too wide) in paragraph at lines 489--490
+Overfull \hbox (3.61516pt too wide) in paragraph at lines 492--493
 []\TU/Calibri(0)/m/n/12 Having defined what is an Anomaly, we can talk about An
 omaly Detection. We define a function
  []
 
 [6] [7]
-Overfull \hbox (3.91232pt too wide) in paragraph at lines 518--519
+Overfull \hbox (3.91232pt too wide) in paragraph at lines 521--522
 \TU/Calibri(0)/m/n/12 the difference in relation to two-class classification pr
 oblems, we should say that anomaly detection
  []
 
 
-Overfull \hbox (1.49826pt too wide) in paragraph at lines 518--519
+Overfull \hbox (1.49826pt too wide) in paragraph at lines 521--522
 \TU/Calibri(0)/m/n/12 these temperatures are very normal for an engine. But if 
 we take into account the time dependence
  []
@@ -1347,7 +1347,7 @@ we take into account the time dependence
 [8]
 Chapter 2.
 
-Overfull \hbox (6.19133pt too wide) in paragraph at lines 521--522
+Overfull \hbox (6.19133pt too wide) in paragraph at lines 524--525
 []\TU/Calibri(0)/m/n/12 Anomaly detection is a subject that has many difficulti
 es and is an evolving field. In the literature
  []
@@ -1355,193 +1355,256 @@ es and is an evolving field. In the literature
 [9
 
 ]
-Overfull \hbox (20.68056pt too wide) in paragraph at lines 542--543
+Overfull \hbox (20.68056pt too wide) in paragraph at lines 545--546
 []\TU/Calibri(0)/m/n/12 The coefficients $\OML/pxmi/m/it/12 a[]; ::::; a[]$ \TU
 /Calibri(0)/m/n/12 and $\OML/pxmi/m/it/12 c$ \TU/Calibri(0)/m/n/12 can be appro
 ximated during training by solving the corresponding
  []
 
 [10]
-Overfull \hbox (4.12717pt too wide) in paragraph at lines 562--563
+Overfull \hbox (4.12717pt too wide) in paragraph at lines 565--566
 \TU/Calibri(0)/m/n/12 This model addresses this problem by generalizing the Aut
 oregressive Moving Average model
  []
 
 
-Overfull \hbox (12.12326pt too wide) in paragraph at lines 562--563
+Overfull \hbox (12.12326pt too wide) in paragraph at lines 565--566
 \TU/Calibri(0)/m/n/12 by adding an additional parameter $\OML/pxmi/m/it/12 d$ \
 TU/Calibri(0)/m/n/12 which defines how many times we will take the differences
  []
 
 
-Overfull \hbox (17.34592pt too wide) in paragraph at lines 584--585
+Overfull \hbox (17.34592pt too wide) in paragraph at lines 587--588
 []\TU/Calibri(0)/m/n/12 To deal with the problem of the trend in stochastic pro
 cesses, the double exponential smoothing
  []
 
-[11] [12] [13] [14]
+[11] [12]
+Overfull \hbox (0.54228pt too wide) in paragraph at lines 617--618
+[]\TU/Calibri(0)/m/n/12 Another algorithm used in clustering problems is DBSAN 
+which is used for anomaly detection
+ []
+
+
+Overfull \hbox (12.54709pt too wide) in paragraph at lines 617--618
+\TU/Calibri(0)/m/n/12 [[]]. This algorithm is based on the density of points an
+d has within it the concept of anomalies.
+ []
+
+
+Overfull \hbox (0.35959pt too wide) in paragraph at lines 629--630
+[]\TU/Calibri(0)/m/n/12 In time series data we can work in the same way as in k
+-means, i.e. by defining subsequences.
+ []
+
+[13] [14]
 File: images//iTrees.png Graphic file (type bmp)
 <images//iTrees.png>
  [15] [16]
 File: images//convfilters.png Graphic file (type bmp)
 <images//convfilters.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[17]
 File: images//resnetplus.png Graphic file (type bmp)
 <images//resnetplus.png>
- [18]
+ [17]
+Overfull \hbox (3.3967pt too wide) in paragraph at lines 726--727
+\TU/Calibri(0)/m/n/12 problem that arises from Convolutional networks due to th
+eir depth. In essence, this problem
+ []
+
 File: images//lstmarchitecture2.png Graphic file (type bmp)
 <images//lstmarchitecture2.png>
+[18] [19]
+Overfull \hbox (4.551pt too wide) in paragraph at lines 757--758
+\TU/Calibri(0)/m/n/12 that have significant differences compared to their initi
+al state will be anomalies. This concept
+ []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[19] [20]
 File: images//autoencoder.png Graphic file (type bmp)
 <images//autoencoder.png>
- [21]
-File: images//lstmvae.png Graphic file (type bmp)
-<images//lstmvae.png>
-
-Overfull \hbox (7.61845pt too wide) in paragraph at lines 797--798
-\TU/Calibri(0)/m/n/12 τη σειρά τους δίνονται στο μοντέλο. Η η κυριότερη διαφορά
- του WaveNet με το convolutional
+[20]
+Overfull \hbox (4.0833pt too wide) in paragraph at lines 778--779
+[]\TU/Calibri(0)/m/n/12 Autoencoders are often combined with other networks, fo
+r example CNN networks or LSTMs.
  []
 
-[22]
+File: images//lstmvae.png Graphic file (type bmp)
+<images//lstmvae.png>
+[21]
 File: images//dilationfilters_withoutdilation.png Graphic file (type bmp)
 <images//dilationfilters_withoutdilation.png>
-LaTeX Info: Redefining \anw@print on input line 803.
-LaTeX Info: Redefining \anw@print on input line 803.
-LaTeX Info: Redefining \anw@print on input line 803.
-LaTeX Info: Redefining \anw@print on input line 803.
+LaTeX Info: Redefining \anw@print on input line 802.
+LaTeX Info: Redefining \anw@print on input line 802.
+LaTeX Info: Redefining \anw@print on input line 802.
+LaTeX Info: Redefining \anw@print on input line 802.
 File: images//dilationfilters_withdilation.png Graphic file (type bmp)
 <images//dilationfilters_withdilation.png>
-LaTeX Info: Redefining \anw@print on input line 810.
-LaTeX Info: Redefining \anw@print on input line 810.
-LaTeX Info: Redefining \anw@print on input line 810.
-LaTeX Info: Redefining \anw@print on input line 810.
+LaTeX Info: Redefining \anw@print on input line 809.
+LaTeX Info: Redefining \anw@print on input line 809.
+LaTeX Info: Redefining \anw@print on input line 809.
+LaTeX Info: Redefining \anw@print on input line 809.
 File: images//lstmarchitecture2.png Graphic file (type bmp)
 <images//lstmarchitecture2.png>
-LaTeX Info: Redefining \anw@print on input line 824.
-LaTeX Info: Redefining \anw@print on input line 824.
-LaTeX Info: Redefining \anw@print on input line 824.
-LaTeX Info: Redefining \anw@print on input line 824.
+LaTeX Info: Redefining \anw@print on input line 823.
+LaTeX Info: Redefining \anw@print on input line 823.
+LaTeX Info: Redefining \anw@print on input line 823.
+LaTeX Info: Redefining \anw@print on input line 823.
 File: images//gruarchitecture2.png Graphic file (type bmp)
 <images//gruarchitecture2.png>
-LaTeX Info: Redefining \anw@print on input line 831.
-LaTeX Info: Redefining \anw@print on input line 831.
-LaTeX Info: Redefining \anw@print on input line 831.
-LaTeX Info: Redefining \anw@print on input line 831.
+LaTeX Info: Redefining \anw@print on input line 830.
+LaTeX Info: Redefining \anw@print on input line 830.
+LaTeX Info: Redefining \anw@print on input line 830.
+LaTeX Info: Redefining \anw@print on input line 830.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[23] [24]
+[22] [23]
 Chapter 3.
-[25
 
-] [26]
-Overfull \hbox (2.37326pt too wide) in paragraph at lines 876--877
-\TU/Calibri(0)/m/n/12 δειγμα Προσομοίωση διαρροής υγρού και προσθήκη, Απότομη σ
-υμπεριφορά ανισορροπίας, Από-
+Overfull \hbox (7.6054pt too wide) in paragraph at lines 844--845
+[]\TU/Calibri(0)/m/n/12 Although ensemble techniques are widespread, in the fie
+ld of anomaly detection in multivariate
  []
 
+[24
 
-Overfull \hbox (1.09787pt too wide) in paragraph at lines 876--877
-\TU/Calibri(0)/m/n/12 τομη αύξηση/μείωση υγρού, Αργή αύξηση υγρού, Αύξηση υγρού
- υψηλής θερμοκρασίας και άλλα.
+] [25]
+Overfull \hbox (11.53146pt too wide) in paragraph at lines 875--876
+\TU/Calibri(0)/m/n/12 system works in normal conditions and then a scenario is 
+simulated where we observe the anomalies. 
  []
 
-LaTeX Info: Redefining \anw@print on input line 878.
-LaTeX Info: Redefining \anw@print on input line 878.
+LaTeX Info: Redefining \anw@print on input line 877.
+LaTeX Info: Redefining \anw@print on input line 877.
+
+Overfull \hbox (9.804pt too wide) in paragraph at lines 877--878
+\TU/Calibri(0)/m/n/12 architecture is proposed which results in a hybrid Networ
+k derived from Capsule and LSTM networks.
+ []
+
+LaTeX Info: Redefining \anw@print on input line 909.
+LaTeX Info: Redefining \anw@print on input line 909.
+LaTeX Info: Redefining \anw@print on input line 909.
+LaTeX Info: Redefining \anw@print on input line 909.
+LaTeX Info: Redefining \anw@print on input line 942.
+LaTeX Info: Redefining \anw@print on input line 942.
+LaTeX Info: Redefining \anw@print on input line 942.
+LaTeX Info: Redefining \anw@print on input line 942.
+[26]
+Overfull \hbox (24.61221pt too wide) in paragraph at lines 950--951
+\OT1/pxr/m/n/12 501) = 1 \OMS/pxsy/m/n/12 ^^@ \OML/pxmi/m/it/12 P\OT1/pxr/m/n/1
+2 (\OML/pxmi/m/it/12 X \OMS/pxsy/m/n/12 ^^T \OT1/pxr/m/n/12 500)$\TU/Calibri(0)
+/m/n/12 . From the binomial distribution we know that $\OML/pxmi/m/it/12 P\OT1/
+pxr/m/n/12 (\OML/pxmi/m/it/12 X \OMS/pxsy/m/n/12 ^^T \OT1/pxr/m/n/12 500) = [][
+]([])[](1 \OMS/pxsy/m/n/12 ^^@
+ []
+
 [27]
-LaTeX Info: Redefining \anw@print on input line 910.
-LaTeX Info: Redefining \anw@print on input line 910.
-LaTeX Info: Redefining \anw@print on input line 910.
-LaTeX Info: Redefining \anw@print on input line 910.
-LaTeX Info: Redefining \anw@print on input line 943.
-LaTeX Info: Redefining \anw@print on input line 943.
-LaTeX Info: Redefining \anw@print on input line 943.
-LaTeX Info: Redefining \anw@print on input line 943.
- [28] [29]
+File: images//majorityvotingpc.png Graphic file (type bmp)
+<images//majorityvotingpc.png>
+ [28]
 File: images//sigmoid.png Graphic file (type bmp)
 <images//sigmoid.png>
- [30] [31]
+ [29] [30]
 File: images//featurebaggingA.png Graphic file (type bmp)
 <images//featurebaggingA.png>
-LaTeX Info: Redefining \anw@print on input line 1001.
-LaTeX Info: Redefining \anw@print on input line 1001.
-LaTeX Info: Redefining \anw@print on input line 1001.
-LaTeX Info: Redefining \anw@print on input line 1001.
+LaTeX Info: Redefining \anw@print on input line 1009.
+LaTeX Info: Redefining \anw@print on input line 1009.
+LaTeX Info: Redefining \anw@print on input line 1009.
+LaTeX Info: Redefining \anw@print on input line 1009.
 File: images//featurebaggingB.png Graphic file (type bmp)
 <images//featurebaggingB.png>
-LaTeX Info: Redefining \anw@print on input line 1008.
-LaTeX Info: Redefining \anw@print on input line 1008.
-LaTeX Info: Redefining \anw@print on input line 1008.
-LaTeX Info: Redefining \anw@print on input line 1008.
- [32] [33] [34] [35]
-Overfull \hbox (1.87526pt too wide) in paragraph at lines 1083--1084
-[]\TU/Calibri(0)/m/n/12 Σαν τελικό βήμα της διαδικασίας αφού έχουμε εκπαιδεύσει
- $\OML/pxmi/m/it/12 L$ \TU/Calibri(0)/m/n/12 βασικούς αλγόριθμους, εφαρ-
+LaTeX Info: Redefining \anw@print on input line 1016.
+LaTeX Info: Redefining \anw@print on input line 1016.
+LaTeX Info: Redefining \anw@print on input line 1016.
+LaTeX Info: Redefining \anw@print on input line 1016.
+ [31]
+Overfull \hbox (2.76779pt too wide) in paragraph at lines 1025--1026
+\TU/Calibri(0)/m/n/12 based on the local features of the data. This is because 
+such algorithms are not sensitive to sampling
  []
 
-[36] [37]
+
+Overfull \hbox (9.38107pt too wide) in paragraph at lines 1025--1026
+\TU/Calibri(0)/m/n/12 methods. However, with feature bagging we succeed in diff
+erentiating ourselves from classic bagging
+ []
+
+
+Overfull \hbox (1.03712pt too wide) in paragraph at lines 1037--1038
+[]\TU/Calibri(0)/m/n/12 We train the anomaly detection algorithm $[][]$ on the 
+data keeping only the $\OMS/pxsy/m/n/12 F$ \TU/Calibri(0)/m/n/12 features. 
+ []
+
+[32]
+Overfull \hbox (21.30685pt too wide) in paragraph at lines 1051--1052
+[]\TU/Calibri(0)/m/n/12 First the data is normalized. Normalizing the data help
+s prevent very high values from dominating
+ []
+
+
+Overfull \hbox (31.78085pt too wide) in paragraph at lines 1053--1054
+[]\TU/Calibri(0)/m/n/12 The correlation matrix (covariance matrix) is then calc
+ulated for all dimensions. That is $[]\OT1/pxr/m/n/12 (\OML/pxmi/m/it/12 X; Y\O
+T1/pxr/m/n/12 ) =
+ []
+
+[33] [34]
+Overfull \hbox (15.51407pt too wide) in paragraph at lines 1089--1090
+\TU/Calibri(0)/m/n/12 the features $\OML/pxmi/m/it/12 a[]$ \TU/Calibri(0)/m/n/1
+2 are not in order. So in this step we place $\OML/pxmi/m/it/12 a[]$ \TU/Calibr
+i(0)/m/n/12 in the order in which the corresponding
+ []
+
+[35]
+Overfull \hbox (6.32213pt too wide) in paragraph at lines 1105--1106
+\OT1/pxr/m/n/12 (\OML/pxmi/m/it/12 SA[]\OT1/pxr/m/n/12 )[] \OMS/pxsy/m/n/12 2 \
+U/pxsyb/m/n/12 R[]$\TU/Calibri(0)/m/n/12 , where $\OML/pxmi/m/it/12 SA$ \TU/Cal
+ibri(0)/m/n/12 denotes the anomaly score given by the $\OML/pxmi/m/it/12 k[]$\T
+U/Calibri(0)/m/n/12 -th model generated
+ []
+
+[36]
 File: images//plot_model_autoencoder_model_c.png Graphic file (type bmp)
 <images//plot_model_autoencoder_model_c.png>
-LaTeX Info: Redefining \anw@print on input line 1112.
-LaTeX Info: Redefining \anw@print on input line 1112.
-LaTeX Info: Redefining \anw@print on input line 1112.
-LaTeX Info: Redefining \anw@print on input line 1112.
+LaTeX Info: Redefining \anw@print on input line 1120.
+LaTeX Info: Redefining \anw@print on input line 1120.
+LaTeX Info: Redefining \anw@print on input line 1120.
+LaTeX Info: Redefining \anw@print on input line 1120.
 File: images//plot_model_conv_ae_model.png Graphic file (type bmp)
 <images//plot_model_conv_ae_model.png>
-LaTeX Info: Redefining \anw@print on input line 1119.
-LaTeX Info: Redefining \anw@print on input line 1119.
-LaTeX Info: Redefining \anw@print on input line 1119.
-LaTeX Info: Redefining \anw@print on input line 1119.
+LaTeX Info: Redefining \anw@print on input line 1127.
+LaTeX Info: Redefining \anw@print on input line 1127.
+LaTeX Info: Redefining \anw@print on input line 1127.
+LaTeX Info: Redefining \anw@print on input line 1127.
 File: images//plot_model_lstm_model.png Graphic file (type bmp)
 <images//plot_model_lstm_model.png>
-LaTeX Info: Redefining \anw@print on input line 1126.
-LaTeX Info: Redefining \anw@print on input line 1126.
-LaTeX Info: Redefining \anw@print on input line 1126.
-LaTeX Info: Redefining \anw@print on input line 1126.
+LaTeX Info: Redefining \anw@print on input line 1134.
+LaTeX Info: Redefining \anw@print on input line 1134.
+LaTeX Info: Redefining \anw@print on input line 1134.
+LaTeX Info: Redefining \anw@print on input line 1134.
 File: images//plot_model_lstm_ae_model.png Graphic file (type bmp)
 <images//plot_model_lstm_ae_model.png>
-LaTeX Info: Redefining \anw@print on input line 1133.
-LaTeX Info: Redefining \anw@print on input line 1133.
-LaTeX Info: Redefining \anw@print on input line 1133.
-LaTeX Info: Redefining \anw@print on input line 1133.
+LaTeX Info: Redefining \anw@print on input line 1141.
+LaTeX Info: Redefining \anw@print on input line 1141.
+LaTeX Info: Redefining \anw@print on input line 1141.
+LaTeX Info: Redefining \anw@print on input line 1141.
 File: images//plot_model_lstm_vae_model.png Graphic file (type bmp)
 <images//plot_model_lstm_vae_model.png>
 
-Overfull \hbox (2.99414pt too wide) in paragraph at lines 1139--1140
+Overfull \hbox (2.99414pt too wide) in paragraph at lines 1147--1148
  [][]\TU/Calibri(0)/m/n/12 ’ 
  []
 
-LaTeX Info: Redefining \anw@print on input line 1140.
-LaTeX Info: Redefining \anw@print on input line 1140.
-LaTeX Info: Redefining \anw@print on input line 1140.
-LaTeX Info: Redefining \anw@print on input line 1140.
-[38]
-Overfull \hbox (15.0761pt too wide) in paragraph at lines 1148--1149
-[]\TU/Calibri(0)/m/n/12 Το μέγεθος του παραθύρου που χρησιμοποιούμε είναι 60 χρ
-ονικές στιγμές για τον Convolutional
- []
-
-
-Overfull \hbox (23.49255pt too wide) in paragraph at lines 1148--1149
-\TU/Calibri(0)/m/n/12 Autoencoder, 5 για τον LSTM, 10 για τον LSTM Autoencoder 
-και 5 για τον LSTM Variational Autoencoder.
- []
-
-[39] [40]
+LaTeX Info: Redefining \anw@print on input line 1148.
+LaTeX Info: Redefining \anw@print on input line 1148.
+LaTeX Info: Redefining \anw@print on input line 1148.
+LaTeX Info: Redefining \anw@print on input line 1148.
+[37] [38] [39]
 Chapter 4.
 File: images//confusionmatrixexplain.png Graphic file (type bmp)
 <images//confusionmatrixexplain.png>
-[41
+[40
 
 ]
 File: images//anomaly_by_autoencoder.png Graphic file (type bmp)
@@ -1554,11 +1617,11 @@ File: images//anomaly_by_lstm_ae.png Graphic file (type bmp)
 <images//anomaly_by_lstm_ae.png>
 File: images//anomaly_by_lstm_vae.png Graphic file (type bmp)
 <images//anomaly_by_lstm_vae.png>
- [42]
 File: images//anomaly_by_voting.png Graphic file (type bmp)
 <images//anomaly_by_voting.png>
 File: images//anomaly_by_logistic_regression.png Graphic file (type bmp)
 <images//anomaly_by_logistic_regression.png>
+ [41]
 File: images//anomaly_by_ensemble_ensemble_autoencoder.png Graphic file (type b
 mp)
 <images//anomaly_by_ensemble_ensemble_autoencoder.png>
@@ -1571,7 +1634,7 @@ File: images//anomaly_by_ensemble_ensemble_lstm_ae.png Graphic file (type bmp)
 File: images//anomaly_by_ensemble_ensemble_lstm_vae.png Graphic file (type bmp)
 
 <images//anomaly_by_ensemble_ensemble_lstm_vae.png>
- [43]
+ [42]
 File: images//anomaly_by_ensemble_ensemble_rotation_autoencoder.png Graphic fil
 e (type bmp)
 <images//anomaly_by_ensemble_ensemble_rotation_autoencoder.png>
@@ -1587,21 +1650,61 @@ ype bmp)
 File: images//anomaly_by_ensemble_ensemble_rotation_lstm_vae.png Graphic file (
 type bmp)
 <images//anomaly_by_ensemble_ensemble_rotation_lstm_vae.png>
- [44]
 File: images//anomaly_by_logistic_regression_mixed_models.png Graphic file (typ
 e bmp)
 <images//anomaly_by_logistic_regression_mixed_models.png>
 
-Underfull \hbox (badness 1365) in paragraph at lines 1314--1314
-[]\TU/Calibri(0)/m/n/12 Σχήμα 4.6: |Stacking, Mixed Models: Feature Bagging wit
-h Rotation, Meta-Learner: Logistic
+Underfull \hbox (badness 1389) in paragraph at lines 1322--1322
+[]\TU/Calibri(0)/m/n/12 Figure 4.6: |Stacking, Mixed Models: Feature Bagging wi
+th Rotation, Meta-Learner: Logistic
+ []
+
+[43] [44]
+
+LaTeX Warning: Reference `tab:comptablstmvariationlautoencoder' on page 45 unde
+fined on input line 1354.
+
+
+Overfull \hbox (8.9592pt too wide) in paragraph at lines 1354--1355
+\TU/Calibri(0)/m/n/12 performance than the corresponding versions of Feature Ba
+gging and Feature Bagging With Rotation
  []
 
 [45] [46] [47] [48] [49]
 Chapter 5.
+
+Overfull \hbox (10.38274pt too wide) in paragraph at lines 1550--1551
+[]\TU/Calibri(0)/m/n/12 In this work we implemented several ensemble techniques
+ for anomaly detection in multivariate
+ []
+
+
+Overfull \hbox (12.23264pt too wide) in paragraph at lines 1550--1551
+\TU/Calibri(0)/m/n/12 time series. This problem has been approached by various 
+algorithms both from statistical techniques
+ []
+
+
+Overfull \hbox (16.84201pt too wide) in paragraph at lines 1550--1551
+\TU/Calibri(0)/m/n/12 results. The ensemble models built initially were a Major
+ity Voting which had a moderate performance
+ []
+
 [50
 
-] (Master_eng_Thesis_Anastasios_Iliopoulos.bbl [51]
+]
+Overfull \hbox (0.17209pt too wide) in paragraph at lines 1552--1553
+\TU/Calibri(0)/m/n/12 more efficiently. Shahzad and Lavesson have done a resear
+ch [[]] in which they investigate variants
+ []
+
+
+Overfull \hbox (6.18742pt too wide) in paragraph at lines 1556--1557
+[]\TU/Calibri(0)/m/n/12 Another important part of these algorithms is the speed
+ part. We noticed that as the complexity
+ []
+
+(Master_eng_Thesis_Anastasios_Iliopoulos.bbl [51]
 Underfull \hbox (badness 1325) in paragraph at lines 48--52
 []\TU/Calibri(0)/m/n/12 R. J. Hyndman, A. B. Koehler, R. D. Snyder, and S. Gros
 e, “A state space framework
@@ -1621,12 +1724,16 @@ Underfull \hbox (badness 1067) in paragraph at lines 130--133
 est: A new classifier ensemble
  []
 
-) [54] (Master_eng_Thesis_Anastasios_Iliopoulos.aux) ) 
+) [54] (Master_eng_Thesis_Anastasios_Iliopoulos.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 25296 strings out of 411566
- 553113 string characters out of 2818153
+ 25309 strings out of 411566
+ 553500 string characters out of 2818153
  1856973 words of memory out of 3000000
- 44938 multiletter control sequences out of 15000+600000
+ 44950 multiletter control sequences out of 15000+600000
  533787 words of font info for 140 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  87i,17n,117p,2512b,737s stack positions out of 10000i,1000n,20000p,200000b,80000s

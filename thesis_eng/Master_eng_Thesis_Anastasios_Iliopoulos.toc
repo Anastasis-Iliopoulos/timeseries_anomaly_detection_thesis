@@ -8,18 +8,18 @@
 \contentsline {chapter}{\numberline {2}Background}{9}{}%
 \contentsline {section}{\numberline {2.1}Statistical methods}{9}{}%
 \contentsline {section}{\numberline {2.2}Machine Learning methods}{12}{}%
-\contentsline {section}{\numberline {2.3}Μέθοδοι Βαθιάς Μηχανικής Μάθησης}{16}{}%
-\contentsline {chapter}{\numberline {3}Ανίχνευση εξαιρέσεων σε δεδομένα χρονοσειρών με χρήση ensemble τεχνικών}{25}{}%
-\contentsline {section}{\numberline {3.1}Ensemble}{25}{}%
-\contentsline {section}{\numberline {3.2}Δεδομένα}{26}{}%
-\contentsline {section}{\numberline {3.3}Majority Voting}{29}{}%
-\contentsline {section}{\numberline {3.4}Logistic Regression}{30}{}%
-\contentsline {section}{\numberline {3.5}Feature Bagging}{32}{}%
-\contentsline {section}{\numberline {3.6}Feature Bagging with Rotation}{34}{}%
-\contentsline {section}{\numberline {3.7}Stacking Feature Bagging with Rotation Models}{37}{}%
-\contentsline {section}{\numberline {3.8}Αρχιτεκτονικές, Υπερπαράμετροι και Μεθοδολογία}{38}{}%
-\contentsline {chapter}{\numberline {4}Αποτελέσματα}{41}{}%
-\contentsline {section}{\numberline {4.1}Αποτελέσματα}{41}{}%
-\contentsline {section}{\numberline {4.2}Συγκρίσεις}{45}{}%
-\contentsline {chapter}{\numberline {5}Συμπεράσματα}{50}{}%
-\contentsline {section}{\numberline {5.1}Συμπεράσματα και Περαιτέρω επέκταση της εργασίας}{50}{}%
+\contentsline {section}{\numberline {2.3}Deep Learning methods}{16}{}%
+\contentsline {chapter}{\numberline {3}Outlier detection in time series data using ensemble techniques}{24}{}%
+\contentsline {section}{\numberline {3.1}Ensemble}{24}{}%
+\contentsline {section}{\numberline {3.2}Data}{25}{}%
+\contentsline {section}{\numberline {3.3}Majority Voting}{27}{}%
+\contentsline {section}{\numberline {3.4}Logistic Regression}{29}{}%
+\contentsline {section}{\numberline {3.5}Feature Bagging}{31}{}%
+\contentsline {section}{\numberline {3.6}Feature Bagging with Rotation}{33}{}%
+\contentsline {section}{\numberline {3.7}Stacking Feature Bagging with Rotation Models}{36}{}%
+\contentsline {section}{\numberline {3.8}Architectures, Hyperparameters and Methodology}{36}{}%
+\contentsline {chapter}{\numberline {4}Results}{40}{}%
+\contentsline {section}{\numberline {4.1}Confusion Matrix}{40}{}%
+\contentsline {section}{\numberline {4.2}Comparisons based on F1 and AUC Score}{44}{}%
+\contentsline {chapter}{\numberline {5}Conclusions}{50}{}%
+\contentsline {section}{\numberline {5.1}Conclusions and extension of the work}{50}{}%
