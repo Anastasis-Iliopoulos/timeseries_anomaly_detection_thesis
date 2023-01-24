@@ -1,0 +1,145 @@
+\begin{thebibliography}{10}
+
+\bibitem{wei2006time}
+W.~Wei, {\em Time Series Analysis: Univariate and Multivariate Methods}.
+\newblock Time Series Analysis: Univariate and Multivariate Methods, Pearson
+  Addison Wesley, 2006.
+
+\bibitem{hyndman2018forecasting}
+R.~J. Hyndman and G.~Athanasopoulos, {\em Forecasting: principles and
+  practice}.
+\newblock OTexts, 2018.
+
+\bibitem{hawkins1980identification}
+D.~M. Hawkins, {\em Identification of outliers}, vol.~11.
+\newblock Springer, 1980.
+
+\bibitem{grubbs1969procedures}
+F.~E. Grubbs, ``Procedures for detecting outlying observations in samples,''
+  {\em Technometrics}, vol.~11, no.~1, pp.~1--21, 1969.
+
+\bibitem{Singh2003Novelty}
+M.~Markou and M.~Singh, ``Novelty detection: A review—part 1: Statistical
+  approaches,'' {\em Signal Processing}, vol.~83, pp.~2481--2497, 12 2003.
+
+\bibitem{knorr1999finding}
+E.~M. Knorr and R.~T. Ng, ``Finding intensional knowledge of distance-based
+  outliers,'' in {\em Vldb}, vol.~99, pp.~211--222, Citeseer, 1999.
+
+\bibitem{braei2020anomaly}
+M.~Braei and S.~Wagner, ``Anomaly detection in univariate time-series: A survey
+  on the state-of-the-art,'' {\em arXiv preprint arXiv:2004.00433}, 2020.
+
+\bibitem{markou2003novelty}
+M.~Markou and S.~Singh, ``Novelty detection: a review—part 2:: neural network
+  based approaches,'' {\em Signal processing}, vol.~83, no.~12, pp.~2499--2521,
+  2003.
+
+\bibitem{Chandola}
+V.~Chandola, A.~Banerjee, and V.~Kumar, ``Anomaly detection: A survey,'' {\em
+  ACM Comput. Surv.}, vol.~41, 07 2009.
+
+\bibitem{chandola2009anomaly}
+V.~Chandola, {\em Anomaly detection for symbolic sequences and time series
+  data}.
+\newblock University of Minnesota, 2009.
+
+\bibitem{HYNDMAN2002439}
+R.~J. Hyndman, A.~B. Koehler, R.~D. Snyder, and S.~Grose, ``A state space
+  framework for automatic forecasting using exponential smoothing methods,''
+  {\em International Journal of Forecasting}, vol.~18, no.~3, pp.~439--454,
+  2002.
+
+\bibitem{KeoghJessica2005}
+E.~Keogh and J.~Lin, ``Clustering of time-series subsequences is meaningless:
+  Implications for previous and future research,'' {\em Knowledge and
+  Information Systems}, vol.~8, pp.~154--177, 08 2005.
+
+\bibitem{MartinKriegelXiaowei1996DBSCAN1996}
+M.~Ester, H.-P. Kriegel, J.~Sander, and X.~Xu, ``A density-based algorithm for
+  discovering clusters in large spatial databases with noise,'' in {\em
+  Proceedings of the Second International Conference on Knowledge Discovery and
+  Data Mining}, KDD'96, p.~226–231, AAAI Press, 1996.
+
+\bibitem{TonyMingZhiHua2008IsolationForest}
+F.~T. Liu, K.~M. Ting, and Z.-H. Zhou, ``Isolation forest,'' in {\em 2008
+  Eighth IEEE International Conference on Data Mining}, pp.~413--422, 2008.
+
+\bibitem{vapnik1964class}
+V.~Vapnik and A.~Y. Chervonenkis, ``A class of algorithms for pattern
+  recognition learning,'' {\em Avtomat. i Telemekh}, vol.~25, no.~6,
+  pp.~937--945, 1964.
+
+\bibitem{ocsvm1999anomalydetection}
+B.~Sch\"{o}lkopf, R.~Williamson, A.~Smola, J.~Shawe-Taylor, and J.~Platt,
+  ``Support vector method for novelty detection,'' in {\em Proceedings of the
+  12th International Conference on Neural Information Processing Systems},
+  NIPS'99, (Cambridge, MA, USA), p.~582–588, MIT Press, 1999.
+
+\bibitem{Chen_2016}
+T.~Chen and C.~Guestrin, ``{XGBoost},'' in {\em Proceedings of the 22nd {ACM}
+  {SIGKDD} International Conference on Knowledge Discovery and Data Mining},
+  {ACM}, aug 2016.
+
+\bibitem{SergeyChristian2015BatchNormalization}
+S.~Ioffe and C.~Szegedy, ``Batch normalization: Accelerating deep network
+  training by reducing internal covariate shift,'' 2015.
+
+\bibitem{HeZhangRen2015Residual}
+K.~He, X.~Zhang, S.~Ren, and J.~Sun, ``Deep residual learning for image
+  recognition,'' {\em CoRR}, vol.~abs/1512.03385, 2015.
+
+\bibitem{LSTM1997HochreiterSchmidhuber}
+S.~Hochreiter and J.~Schmidhuber, ``{Long Short-Term Memory},'' {\em Neural
+  Computation}, vol.~9, pp.~1735--1780, 11 1997.
+
+\bibitem{Kingma2013WellingVAE}
+D.~P. Kingma and M.~Welling, ``Auto-encoding variational bayes,'' 2013.
+
+\bibitem{Oord2016WaveNet}
+A.~v.~d. Oord, S.~Dieleman, H.~Zen, K.~Simonyan, O.~Vinyals, A.~Graves,
+  N.~Kalchbrenner, A.~Senior, and K.~Kavukcuoglu, ``Wavenet: A generative model
+  for raw audio,'' 2016.
+
+\bibitem{ChoMerrienboer2014GRURNN}
+K.~Cho, B.~van Merrienboer, {\c{C}}.~G{\"{u}}l{\c{c}}ehre, F.~Bougares,
+  H.~Schwenk, and Y.~Bengio, ``Learning phrase representations using {RNN}
+  encoder-decoder for statistical machine translation,'' {\em CoRR},
+  vol.~abs/1406.1078, 2014.
+
+\bibitem{skabdataset}
+I.~D. Katser and V.~O. Kozitsin, ``Skoltech anomaly benchmark (skab).''
+  https://www.kaggle.com/dsv/1693952, 2020.
+
+\bibitem{elhalwagy2022hybridization}
+A.~Elhalwagy and T.~Kalganova, ``Hybridization of capsule and lstm networks for
+  unsupervised anomaly detection on multivariate data,'' {\em arXiv preprint
+  arXiv:2202.05538}, 2022.
+
+\bibitem{pranavan2022contrastive}
+T.~Pranavan, T.~Sim, A.~Ambikapathi, and S.~Ramasamy, ``Contrastive predictive
+  coding for anomaly detection in multi-variate time series data,'' {\em arXiv
+  preprint arXiv:2202.03639}, 2022.
+
+\bibitem{lazarevicKumar2005Featurebagging}
+A.~Lazarevic and V.~Kumar, ``Feature bagging for outlier detection,'' in {\em
+  booktitle={Proceedings of the eleventh ACM SIGKDD international conference on
+  Knowledge discovery in data mining},}, vol.~21, pp.~157--166, 01 2005.
+
+\bibitem{Rotation2006Forest}
+J.~Rodríguez, L.~Kuncheva, and C.~Alonso, ``Rotation forest: A new classifier
+  ensemble method,'' {\em IEEE transactions on pattern analysis and machine
+  intelligence}, vol.~28, pp.~1619--30, 11 2006.
+
+\bibitem{han2012mining}
+J.~Han, M.~Kamber, and J.~Pei, {\em Data mining concepts and techniques, third
+  edition}.
+\newblock Morgan Kaufmann Publishers, 2012.
+
+\bibitem{shahzad2013comparative}
+R.~K. Shahzad and N.~Lavesson, ``Comparative analysis of voting schemes for
+  ensemble-based malware detection,'' {\em Journal of Wireless Mobile Networks,
+  Ubiquitous Computing, and Dependable Applications}, vol.~4, no.~1,
+  pp.~98--117, 2013.
+
+\end{thebibliography}
